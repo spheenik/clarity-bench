@@ -7,9 +7,8 @@ import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 
+import java.io.IOException;
 import java.io.PrintStream;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.lang.management.ManagementFactory;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -17,10 +16,12 @@ import java.security.CodeSource;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 /** Orchestrator. Each {@code :vX.Y.Z:run} invocation enters here. */
 public final class BenchMain {
@@ -28,13 +29,14 @@ public final class BenchMain {
     public static void main(String[] args) throws Exception {
         Args parsed = Args.parse(args);
 
-        LoggingGuard.enforceWarnOrAbove();
+        // Strict-name validation runs early — before adapter load, manifest read,
+        // or anything else that could fail first. Catches typos like
+        // `--workload propchang` immediately, regardless of project state.
+        validateFilterNames(parsed);
 
         BenchAdapter adapter = AdapterHolder.get();
         Capabilities caps = adapter.capabilities();
         validateCapabilities(adapter, caps);
-
-        printCapabilitySummary(adapter, caps);
 
         Path replaysRoot = parsed.replaysRoot.toAbsolutePath().normalize();
         Path manifestFile = replaysRoot.resolve("MANIFEST.sha256");
@@ -43,11 +45,23 @@ public final class BenchMain {
         }
         Manifest manifest = Manifest.load(manifestFile);
 
+        if (parsed.listReplays) {
+            runListReplays(adapter, manifest, replaysRoot);
+            return;
+        }
+
+        LoggingGuard.enforceWarnOrAbove();
+
+        printCapabilitySummary(adapter, caps);
+
         // Resolve which manifest entries to actually bench.
         List<Manifest.Entry> requested = resolveRequestedReplays(manifest, parsed.replayFilter);
 
         // Verify sha256 + size before any bench cell runs.
         verifyAll(replaysRoot, requested);
+
+        // Verify detector vs manifest tag (skips entries the adapter can't classify).
+        verifyEngineTags(adapter, replaysRoot, requested);
 
         // Filter by adapter's supported engines.
         List<Manifest.Entry> compatible = new ArrayList<>();
@@ -68,49 +82,243 @@ public final class BenchMain {
                     + " (supportedEngines=" + caps.supportedEngines() + ")");
         }
 
-        String[] replayParams = compatible.stream().map(Manifest.Entry::relativePath).toArray(String[]::new);
-        String[] implParams = caps.entityStateImpls().isEmpty()
-                ? new String[]{"DEFAULT"}
-                : caps.entityStateImpls().toArray(new String[0]);
+        List<RunResult> allResults = new ArrayList<>();
+        Counts counts = new Counts();
 
-        OptionsBuilder ob = new OptionsBuilder();
-        ob.include(ParseBench.class.getName());
-        ob.shouldFailOnError(false);
-        ob.param("replay", replayParams);
-        ob.param("impl", implParams);
-        ob.jvmArgsAppend("-D" + ParseBench.REPLAY_ROOT_PROP + "=" + replaysRoot);
-        ob.addProfiler(org.openjdk.jmh.profile.GCProfiler.class);
-        Options opts = ob.build();
-
-        Collection<RunResult> results;
-        try {
-            results = new Runner(opts).run();
-        } catch (NoBenchmarksException e) {
-            die("JMH found no benchmarks. Is harness/build output on the classpath?");
-            return;
-        } catch (RunnerException e) {
-            // shouldFailOnError(false) means individual cell failures don't reach
-            // here; this catch is for harness-level setup failures.
-            die("JMH refused to run: " + e.getMessage());
-            return;
+        // ParseBench — iterate impls, restrict replays to each impl's compatible engines.
+        if (workloadActive(parsed, Workloads.PARSE)) {
+            runParseMatrix(adapter, caps, parsed, replaysRoot, compatible, allResults, counts);
         }
 
-        // Extract cell-level failures from JMH output.
-        // With shouldFailOnError(false), failed iterations leave NaN scores in
-        // the RunResult but still appear in the collection. JMH already prints
-        // per-iteration error details to stderr; we surface them here too.
-        List<ResultWriter.FailureRecord> failures = extractFailures(results);
+        // DispatchBench — iterate variants, restrict replays to each variant's compatible engines.
+        if (workloadActive(parsed, Workloads.DISPATCH)) {
+            runVariantMatrix(
+                    DispatchBench.class, adapter, caps.dispatchVariants(), parsed.variantFilter,
+                    parsed, replaysRoot, compatible, allResults, counts);
+        }
 
-        ResultWriter.writeText(System.out, adapter.version(), results, failures);
+        // PropertyChangeBench — same shape.
+        if (workloadActive(parsed, Workloads.PROPCHANGE)) {
+            runVariantMatrix(
+                    PropertyChangeBench.class, adapter, caps.propertyChangeVariants(), parsed.variantFilter,
+                    parsed, replaysRoot, compatible, allResults, counts);
+        }
+
+        if (counts.attempts == 0) {
+            die("After filtering, no benchmarks remain for adapter " + adapter.version()
+                    + " (workloadFilter=" + parsed.workloadFilter
+                    + " implFilter=" + parsed.implFilter
+                    + " variantFilter=" + parsed.variantFilter + ")");
+        }
+
+        List<ResultWriter.FailureRecord> failures = extractFailures(allResults);
+
+        // Synthesize failure records for fork-death cases: a Runner.run() invocation
+        // that returned no results at all (happens when the fork System.exits via
+        // the per-iteration watchdog) leaves no NaN in `allResults` to surface.
+        for (Counts.DeadFork df : counts.deadForks) {
+            failures.add(new ResultWriter.FailureRecord(
+                    "(unknown — fork died before reporting)",
+                    df.axisName + "=" + df.axisValue,
+                    "ForkExit",
+                    "Fork exited without producing results — likely watchdog fired ("
+                            + Watchdog.TIMEOUT_SECONDS + "s) on a hung iteration"));
+        }
+
+        ResultWriter.writeText(System.out, adapter.version(), allResults, failures);
 
         if (parsed.record) {
-            persist(adapter, caps, replaysRoot, requested, results, failures);
+            persist(adapter, caps, replaysRoot, requested, allResults, failures);
         }
 
         if (!failures.isEmpty()) {
             System.err.println("Bench completed with " + failures.size() + " failed cell(s).");
             System.exit(2);
         }
+    }
+
+    /** Aggregator passed through the matrix expansion. */
+    private static final class Counts {
+        int attempts;
+        record DeadFork(String benchClass, String axisName, String axisValue) {}
+        final List<DeadFork> deadForks = new ArrayList<>();
+    }
+
+    // ---------------------------------------------------------------------
+    // Matrix expansion
+    // ---------------------------------------------------------------------
+
+    /**
+     * Runs ParseBench: one JMH invocation per declared impl (filtered by
+     * {@code --impl} if present), each restricted to that impl's applicable
+     * engines intersected with {@code compatible}. If the adapter declares
+     * no impls, runs once with {@code impl=DEFAULT} against all compatible.
+     */
+    private static void runParseMatrix(
+            BenchAdapter adapter,
+            Capabilities caps,
+            Args args,
+            Path replaysRoot,
+            List<Manifest.Entry> compatible,
+            List<RunResult> sink,
+            Counts counts) throws Exception {
+
+        if (caps.entityStateImpls().isEmpty()) {
+            String[] replays = compatible.stream().map(Manifest.Entry::relativePath).toArray(String[]::new);
+            runOne(ParseBench.class, replays, "impl", "DEFAULT", replaysRoot, sink, counts);
+            return;
+        }
+
+        for (var entry : caps.entityStateImpls().entrySet()) {
+            String impl = entry.getKey();
+            Set<String> applicableEngines = entry.getValue();
+            if (!args.implFilter.isEmpty() && !args.implFilter.contains(impl)) continue;
+
+            String[] replays = compatible.stream()
+                    .filter(e -> applicableEngines.contains(e.engine()))
+                    .map(Manifest.Entry::relativePath)
+                    .toArray(String[]::new);
+            if (replays.length == 0) {
+                System.out.println("ParseBench impl=" + impl + ": no compatible replays after filtering — skipping");
+                continue;
+            }
+            runOne(ParseBench.class, replays, "impl", impl, replaysRoot, sink, counts);
+        }
+    }
+
+    /**
+     * Runs a variant-axis benchmark class (Dispatch or PropertyChange). One
+     * JMH invocation per declared variant (filtered by {@code --variant}),
+     * each restricted to the variant's applicable engines.
+     */
+    private static void runVariantMatrix(
+            Class<?> benchClass,
+            BenchAdapter adapter,
+            Map<String, Set<String>> variantMap,
+            Set<String> variantFilter,
+            Args args,
+            Path replaysRoot,
+            List<Manifest.Entry> compatible,
+            List<RunResult> sink,
+            Counts counts) throws Exception {
+
+        if (variantMap.isEmpty()) {
+            // Adapter does not expose this workload.
+            return;
+        }
+
+        for (var entry : variantMap.entrySet()) {
+            String variant = entry.getKey();
+            Set<String> applicableEngines = entry.getValue();
+            if (!variantFilter.isEmpty() && !variantFilter.contains(variant)) continue;
+
+            String[] replays = compatible.stream()
+                    .filter(e -> applicableEngines.contains(e.engine()))
+                    .map(Manifest.Entry::relativePath)
+                    .toArray(String[]::new);
+            if (replays.length == 0) {
+                System.out.println(benchClass.getSimpleName() + " variant=" + variant
+                        + ": no compatible replays after filtering — skipping");
+                continue;
+            }
+            runOne(benchClass, replays, "variant", variant, replaysRoot, sink, counts);
+        }
+    }
+
+    /**
+     * One JMH invocation: a single benchmark class, a fixed value for one
+     * non-replay axis, a set of replays. Forks per the benchmark class's
+     * {@code @Fork} annotation.
+     */
+    private static void runOne(
+            Class<?> benchClass,
+            String[] replays,
+            String axisName,
+            String axisValue,
+            Path replaysRoot,
+            List<RunResult> sink,
+            Counts counts) throws Exception {
+
+        OptionsBuilder ob = new OptionsBuilder();
+        ob.include(benchClass.getName());
+        ob.shouldFailOnError(false);
+        ob.param("replay", replays);
+        ob.param(axisName, axisValue);
+        ob.jvmArgsAppend("-D" + ParseBench.REPLAY_ROOT_PROP + "=" + replaysRoot);
+        ob.addProfiler(org.openjdk.jmh.profile.GCProfiler.class);
+        Options opts = ob.build();
+
+        counts.attempts++;
+        try {
+            Collection<RunResult> r = new Runner(opts).run();
+            if (r.isEmpty()) {
+                // Fork died before reporting (likely Watchdog hard-exit).
+                counts.deadForks.add(new Counts.DeadFork(benchClass.getSimpleName(), axisName, axisValue));
+            } else {
+                sink.addAll(r);
+            }
+        } catch (NoBenchmarksException e) {
+            die("JMH found no benchmarks for " + benchClass.getSimpleName()
+                    + ". Is harness build output on the classpath?");
+        } catch (RunnerException e) {
+            die("JMH refused to run " + benchClass.getSimpleName() + ": " + e.getMessage());
+        }
+    }
+
+    private static boolean workloadActive(Args args, String workload) {
+        return args.workloadFilter.isEmpty() || args.workloadFilter.contains(workload);
+    }
+
+    // ---------------------------------------------------------------------
+    // List-replays mode
+    // ---------------------------------------------------------------------
+
+    private static void runListReplays(BenchAdapter adapter, Manifest manifest, Path replaysRoot) {
+        System.out.println("# detector: " + adapter.version());
+        System.out.printf(Locale.ROOT, "%-60s %-12s %-12s%n", "replay", "detected", "manifest");
+        for (Manifest.Entry e : manifest.entries().values()) {
+            Path file = replaysRoot.resolve(e.relativePath());
+            String detected;
+            if (!Files.isRegularFile(file)) {
+                detected = "<missing>";
+            } else {
+                try {
+                    String d = adapter.detectEngine(file);
+                    detected = d == null ? "<unknown>" : d;
+                } catch (IOException ioe) {
+                    detected = "<error: " + ioe.getMessage() + ">";
+                }
+            }
+            String marker = detected.equals(e.engine()) ? "" : "  *";
+            System.out.printf(Locale.ROOT, "%-60s %-12s %-12s%s%n",
+                    e.relativePath(), detected, e.engine(), marker);
+        }
+    }
+
+    // ---------------------------------------------------------------------
+    // Filter validation, capability validation, summary
+    // ---------------------------------------------------------------------
+
+    private static void validateFilterNames(Args args) {
+        for (String w : args.workloadFilter) {
+            if (!Workloads.ALL.contains(w)) {
+                die("Unknown --workload value '" + w + "'. Valid: " + sorted(Workloads.ALL));
+            }
+        }
+        for (String impl : args.implFilter) {
+            if (!Workloads.KNOWN_IMPLS.contains(impl)) {
+                die("Unknown --impl value '" + impl + "'. Valid: " + sorted(Workloads.KNOWN_IMPLS));
+            }
+        }
+        for (String v : args.variantFilter) {
+            if (!Workloads.KNOWN_VARIANTS.contains(v)) {
+                die("Unknown --variant value '" + v + "'. Valid: " + sorted(Workloads.KNOWN_VARIANTS));
+            }
+        }
+    }
+
+    private static Set<String> sorted(Set<String> in) {
+        return new TreeSet<>(in);
     }
 
     private static void validateCapabilities(BenchAdapter adapter, Capabilities caps) {
@@ -124,13 +332,66 @@ public final class BenchMain {
 
     private static void printCapabilitySummary(BenchAdapter adapter, Capabilities caps) {
         System.out.println("=== bench startup ===");
-        System.out.println("adapter:           " + adapter.version());
-        System.out.println("supportedEngines:  " + caps.supportedEngines());
-        System.out.println("entityStateImpls:  " + (caps.entityStateImpls().isEmpty()
-                ? "{} (will run once with version default)"
-                : caps.entityStateImpls().toString()));
+        System.out.println("adapter:                  " + adapter.version());
+        System.out.println("supportedEngines:         " + caps.supportedEngines());
+        printApplicabilityMap("entityStateImpls:         ", caps.entityStateImpls(),
+                "{} (will run once with version default)");
+        printApplicabilityMap("dispatchVariants:         ", caps.dispatchVariants(),
+                "{} (DispatchBench will be skipped)");
+        printApplicabilityMap("propertyChangeVariants:   ", caps.propertyChangeVariants(),
+                "{} (PropertyChangeBench will be skipped)");
         System.out.println();
     }
+
+    private static void printApplicabilityMap(String label, Map<String, Set<String>> map, String emptyHint) {
+        if (map.isEmpty()) {
+            System.out.println(label + emptyHint);
+            return;
+        }
+        System.out.println(label);
+        for (var e : map.entrySet()) {
+            System.out.println("  " + e.getKey() + " -> " + e.getValue());
+        }
+    }
+
+    // ---------------------------------------------------------------------
+    // Manifest engine-tag verification (detector vs manifest)
+    // ---------------------------------------------------------------------
+
+    private static void verifyEngineTags(BenchAdapter adapter, Path replaysRoot, List<Manifest.Entry> entries) {
+        List<String> mismatches = new ArrayList<>();
+        for (Manifest.Entry e : entries) {
+            Path file = replaysRoot.resolve(e.relativePath());
+            String detected;
+            try {
+                detected = adapter.detectEngine(file);
+            } catch (IOException ioe) {
+                mismatches.add("  " + e.relativePath() + ": detector failed (" + ioe.getMessage() + ")");
+                continue;
+            }
+            if (detected == null) {
+                // Adapter doesn't recognize this engine (e.g. older release on a newer game).
+                // Trust the manifest tag in that case — log only.
+                System.out.println("Note: " + adapter.version() + " adapter cannot classify "
+                        + e.relativePath() + "; trusting manifest tag '" + e.engine() + "'");
+                continue;
+            }
+            if (!detected.equals(e.engine())) {
+                mismatches.add("  " + e.relativePath() + ": manifest='" + e.engine()
+                        + "' detected='" + detected + "'");
+            }
+        }
+        if (!mismatches.isEmpty()) {
+            System.err.println("ERROR: manifest engine tag(s) disagree with detector for "
+                    + mismatches.size() + " replay(s):");
+            for (String m : mismatches) System.err.println(m);
+            System.exit(1);
+        }
+    }
+
+    // ---------------------------------------------------------------------
+    // Plumbing carried over from prior version
+    // ---------------------------------------------------------------------
 
     private static List<Manifest.Entry> resolveRequestedReplays(Manifest manifest, List<String> filter) {
         if (filter.isEmpty()) return new ArrayList<>(manifest.entries().values());
@@ -159,9 +420,13 @@ public final class BenchMain {
         for (RunResult r : results) {
             double score = r.getPrimaryResult().getScore();
             if (Double.isNaN(score)) {
+                String impl = r.getParams().getParam("impl");
+                String variant = r.getParams().getParam("variant");
+                String axisLabel = impl != null ? "impl=" + impl
+                        : variant != null ? "variant=" + variant : "(no axis)";
                 out.add(new ResultWriter.FailureRecord(
                         r.getParams().getParam("replay"),
-                        r.getParams().getParam("impl"),
+                        axisLabel,
                         "BenchmarkFailure",
                         "JMH iteration produced NaN — see stderr above for the actual exception"));
             }
@@ -184,15 +449,12 @@ public final class BenchMain {
         Path resultsRoot = locateResultsRoot();
         Path runDir = resultsRoot.resolve(dirName);
         Files.createDirectories(runDir);
-        // The directory is shared across versions for the same date/hw/jdk;
-        // refuse only if THIS version's file already exists.
         String safeVersion = adapter.version().replaceAll("[^A-Za-z0-9._-]", "_");
         Path textFile = runDir.resolve(safeVersion + ".txt");
         if (Files.exists(textFile)) {
             die("Refusing to overwrite existing recorded result: " + textFile);
         }
 
-        // context.txt — written once on first version; appended for subsequent versions.
         Path contextFile = runDir.resolve("context.txt");
         boolean firstVersionInDir = !Files.exists(contextFile);
         try (PrintStream p = new PrintStream(Files.newOutputStream(contextFile,
@@ -219,6 +481,10 @@ public final class BenchMain {
             p.println();
             p.println("--- " + adapter.version() + " ---");
             p.println("clarity JAR:     " + describeClarityJar(adapter));
+            String provenance = adapter.implSelectionProvenance();
+            if (provenance != null && !provenance.isEmpty()) {
+                p.println("impl selection:  " + provenance);
+            }
         }
 
         try (PrintStream p = new PrintStream(Files.newOutputStream(textFile))) {
@@ -231,7 +497,6 @@ public final class BenchMain {
     }
 
     private static Path locateResultsRoot() {
-        // Walk up from CWD looking for a 'results' directory; fall back to ./results.
         Path cwd = Path.of("").toAbsolutePath();
         Path p = cwd;
         for (int i = 0; i < 6 && p != null; i++) {
@@ -270,9 +535,6 @@ public final class BenchMain {
             CodeSource cs = adapter.getClass().getProtectionDomain().getCodeSource();
             if (cs == null || cs.getLocation() == null) return "(unknown location)";
             Path location = Path.of(cs.getLocation().toURI());
-            // adapter is in the version subproject's jar; find clarity in classpath via classloader of an adapter-touched class.
-            // Simplest: look for clarity by name on the classpath roots system property is fragile;
-            // instead, walk java.class.path and find anything matching 'clarity'.
             String classpath = System.getProperty("java.class.path", "");
             for (String entry : classpath.split(java.io.File.pathSeparator)) {
                 String lower = entry.toLowerCase(Locale.ROOT);
@@ -297,17 +559,33 @@ public final class BenchMain {
     }
 
     /** Minimal CLI parser; sufficient for our handful of flags. */
-    public record Args(Path replaysRoot, boolean record, List<String> replayFilter) {
+    public record Args(
+            Path replaysRoot,
+            boolean record,
+            boolean listReplays,
+            List<String> replayFilter,
+            Set<String> implFilter,
+            Set<String> workloadFilter,
+            Set<String> variantFilter
+    ) {
         public static Args parse(String[] argv) {
             Path root = null;
             boolean rec = false;
-            List<String> filter = new ArrayList<>();
+            boolean list = false;
+            List<String> replayFilter = new ArrayList<>();
+            Set<String> implFilter = new LinkedHashSet<>();
+            Set<String> workloadFilter = new LinkedHashSet<>();
+            Set<String> variantFilter = new LinkedHashSet<>();
             for (int i = 0; i < argv.length; i++) {
                 String a = argv[i];
                 switch (a) {
                     case "--replays-root" -> root = Path.of(req(argv, ++i, "--replays-root"));
                     case "--record" -> rec = true;
-                    case "--replay" -> filter.add(req(argv, ++i, "--replay"));
+                    case "--list-replays" -> list = true;
+                    case "--replay" -> replayFilter.add(req(argv, ++i, "--replay"));
+                    case "--impl" -> implFilter.add(req(argv, ++i, "--impl"));
+                    case "--workload" -> workloadFilter.add(req(argv, ++i, "--workload"));
+                    case "--variant" -> variantFilter.add(req(argv, ++i, "--variant"));
                     case "-h", "--help" -> {
                         usage();
                         System.exit(0);
@@ -324,7 +602,7 @@ public final class BenchMain {
                 usage();
                 System.exit(1);
             }
-            return new Args(root, rec, filter);
+            return new Args(root, rec, list, replayFilter, implFilter, workloadFilter, variantFilter);
         }
 
         private static String req(String[] argv, int i, String flag) {
@@ -336,7 +614,13 @@ public final class BenchMain {
         }
 
         private static void usage() {
-            System.err.println("usage: BenchMain --replays-root <path> [--record] [--replay <relative-path>]...");
+            System.err.println("usage: BenchMain --replays-root <path>");
+            System.err.println("                 [--record]");
+            System.err.println("                 [--list-replays]");
+            System.err.println("                 [--replay <relative-path>]...");
+            System.err.println("                 [--workload parse|dispatch|propchange]...");
+            System.err.println("                 [--impl <impl-name>]...");
+            System.err.println("                 [--variant <variant-name>]...");
         }
     }
 

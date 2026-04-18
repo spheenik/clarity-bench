@@ -8,16 +8,12 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Parse-workload benchmark. Measures end-to-end replay parse time with the
- * adapter's entity-state implementation selected via the {@code impl} param.
+ * PropertyChange-workload benchmark. Measures end-to-end replay parse time
+ * with an {@code @OnEntityPropertyChanged}-listener variant installed
+ * (selected by the {@code variant} param).
  *
- * <p>The {@code replay} and {@code impl} params are declared with sentinel
- * defaults; {@link BenchMain} overrides them at runtime via
- * {@link org.openjdk.jmh.runner.options.OptionsBuilder#param}.
- *
- * <p>Replay paths are passed as relative manifest paths; the absolute root is
- * supplied via the {@code claritybench.replays.root} system property
- * (forwarded to forked JMH JVMs by {@link BenchMain}).
+ * <p>The {@code replay} and {@code variant} params are declared with sentinel
+ * defaults; {@link BenchMain} overrides them at runtime.
  */
 @State(Scope.Benchmark)
 @BenchmarkMode(Mode.SingleShotTime)
@@ -25,15 +21,13 @@ import java.util.concurrent.TimeUnit;
 @Warmup(iterations = 3, batchSize = 1)
 @Measurement(iterations = 10, batchSize = 1)
 @Fork(1)
-public class ParseBench {
-
-    public static final String REPLAY_ROOT_PROP = "claritybench.replays.root";
+public class PropertyChangeBench {
 
     @Param({"DEFAULT"})
     public String replay;
 
     @Param({"DEFAULT"})
-    public String impl;
+    public String variant;
 
     private BenchAdapter adapter;
     private String absoluteReplayPath;
@@ -42,22 +36,22 @@ public class ParseBench {
     @Setup(Level.Trial)
     public void setUp() {
         this.adapter = AdapterHolder.get();
-        String root = System.getProperty(REPLAY_ROOT_PROP);
+        String root = System.getProperty(ParseBench.REPLAY_ROOT_PROP);
         if (root == null) {
             throw new IllegalStateException(
-                    "System property " + REPLAY_ROOT_PROP + " is not set. "
+                    "System property " + ParseBench.REPLAY_ROOT_PROP + " is not set. "
                     + "BenchMain must forward it to forked JMH JVMs.");
         }
         Path resolved = Paths.get(root).resolve(replay).toAbsolutePath().normalize();
         this.absoluteReplayPath = resolved.toString();
         this.config = Map.of(
-                Workloads.KEY_WORKLOAD, Workloads.PARSE,
-                Workloads.KEY_IMPL,     impl,
-                Workloads.KEY_VARIANT,  Workloads.DEFAULT);
+                Workloads.KEY_WORKLOAD, Workloads.PROPCHANGE,
+                Workloads.KEY_IMPL,     Workloads.DEFAULT,
+                Workloads.KEY_VARIANT,  variant);
     }
 
     @Benchmark
-    public void parse() throws Exception {
+    public void propchange() throws Exception {
         Watchdog.runWithTimeout(() -> {
             adapter.parse(absoluteReplayPath, config);
             return null;
