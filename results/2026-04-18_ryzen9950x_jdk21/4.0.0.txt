@@ -1,0 +1,10 @@
+ParseBench — clarity 4.0.0
+generated: 2026-04-18T11:57:39.262812627Z
+
+=== dota/s2/340/8168882574_1198277651.dem ===
+  impl                   median          min          max          p95   score ± err (ms)
+  DEFAULT              1853.9 ms     1846.0 ms     1933.9 ms     1933.9 ms     1867.9 ± 47.2
+
+  impl                   alloc/op     alloc rate        GCs      GC time
+  DEFAULT                 9.47 GB      5192 MB/s         70       187 ms
+

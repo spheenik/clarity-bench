@@ -1,0 +1,14 @@
+ParseBench — clarity 5.0.0-SNAPSHOT
+generated: 2026-04-18T11:58:40.207884267Z
+
+=== dota/s2/340/8168882574_1198277651.dem ===
+  impl                   median          min          max          p95   score ± err (ms)
+  TREE_MAP             1743.8 ms     1713.2 ms     1772.7 ms     1772.7 ms     1744.0 ± 30.9
+  FLAT                 1310.0 ms     1297.9 ms     1333.1 ms     1333.1 ms     1312.3 ± 18.3
+  NESTED_ARRAY         1421.6 ms     1412.1 ms     1439.9 ms     1439.9 ms     1422.5 ± 12.5
+
+  impl                   alloc/op     alloc rate        GCs      GC time
+  TREE_MAP                3.71 GB      2179 MB/s         38       415 ms
+  FLAT                    3.31 GB      2579 MB/s         35       114 ms
+  NESTED_ARRAY            3.58 GB      2578 MB/s         46       134 ms
+
