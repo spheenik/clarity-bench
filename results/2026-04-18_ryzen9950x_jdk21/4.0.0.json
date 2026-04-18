@@ -1,0 +1,40 @@
+{
+  "adapter": "4.0.0",
+  "generated": "2026-04-18T17:03:50.155232096Z",
+  "cells": [
+    {"benchmark": "ParseBench", "replay": "dota/s1/normal/271145478.dem", "impl": "OBJECT_ARRAY", "unit": "ms", "score": 420.9201, "error": 25.8266, "min": 412.2492, "max": 469.0511, "median": 415.4948, "p95": 469.0511, "n": 10},
+    {"benchmark": "ParseBench", "replay": "dota/s2/normal/1560289528.dem", "impl": "NESTED_ARRAY", "unit": "ms", "score": 483.6758, "error": 8.8937, "min": 476.3221, "max": 492.3771, "median": 483.9366, "p95": 492.3771, "n": 10},
+    {"benchmark": "ParseBench", "replay": "deadlock/newer/19206063.dem", "impl": "NESTED_ARRAY", "unit": "ms", "score": 1385.1062, "error": 12.8393, "min": 1375.6594, "max": 1406.3157, "median": 1382.8517, "p95": 1406.3157, "n": 10},
+    {"benchmark": "ParseBench", "replay": "csgo/s2/issue-345/liquid-vs-betboom-m1-mirage.dem", "impl": "NESTED_ARRAY", "unit": "ms", "score": 1505.3557, "error": 21.9706, "min": 1489.4982, "max": 1530.7548, "median": 1501.1666, "p95": 1530.7548, "n": 10},
+    {"benchmark": "ParseBench", "replay": "dota/s2/normal/1560289528.dem", "impl": "TREE_MAP", "unit": "ms", "score": 508.5196, "error": 4.8801, "min": 504.4591, "max": 514.7037, "median": 507.4860, "p95": 514.7037, "n": 10},
+    {"benchmark": "ParseBench", "replay": "deadlock/newer/19206063.dem", "impl": "TREE_MAP", "unit": "ms", "score": 1531.0829, "error": 20.1767, "min": 1512.1194, "max": 1562.8993, "median": 1528.9286, "p95": 1562.8993, "n": 10},
+    {"benchmark": "ParseBench", "replay": "csgo/s2/issue-345/liquid-vs-betboom-m1-mirage.dem", "impl": "TREE_MAP", "unit": "ms", "score": 1581.4228, "error": 10.9134, "min": 1573.2640, "max": 1597.4633, "median": 1580.1331, "p95": 1597.4633, "n": 10},
+    {"benchmark": "DispatchBench", "replay": "dota/s1/normal/271145478.dem", "variant": "Baseline", "unit": "ms", "score": 421.6772, "error": 10.1717, "min": 415.8501, "max": 439.1032, "median": 419.6196, "p95": 439.1032, "n": 10},
+    {"benchmark": "DispatchBench", "replay": "dota/s2/normal/1560289528.dem", "variant": "Baseline", "unit": "ms", "score": 481.7806, "error": 5.0679, "min": 477.4882, "max": 489.1965, "median": 480.8996, "p95": 489.1965, "n": 10},
+    {"benchmark": "DispatchBench", "replay": "deadlock/newer/19206063.dem", "variant": "Baseline", "unit": "ms", "score": 1376.1679, "error": 8.3378, "min": 1364.8100, "max": 1383.1562, "median": 1376.0615, "p95": 1383.1562, "n": 10},
+    {"benchmark": "DispatchBench", "replay": "csgo/s2/issue-345/liquid-vs-betboom-m1-mirage.dem", "variant": "Baseline", "unit": "ms", "score": 1500.3066, "error": 12.4965, "min": 1489.6557, "max": 1515.6607, "median": 1498.1281, "p95": 1515.6607, "n": 10},
+    {"benchmark": "DispatchBench", "replay": "dota/s1/normal/271145478.dem", "variant": "Lifecycle", "unit": "ms", "score": 416.3756, "error": 2.4292, "min": 414.1790, "max": 419.1266, "median": 415.6639, "p95": 419.1266, "n": 10},
+    {"benchmark": "DispatchBench", "replay": "dota/s2/normal/1560289528.dem", "variant": "Lifecycle", "unit": "ms", "score": 489.2260, "error": 15.2522, "min": 481.6718, "max": 515.3771, "median": 485.9058, "p95": 515.3771, "n": 10},
+    {"benchmark": "DispatchBench", "replay": "deadlock/newer/19206063.dem", "variant": "Lifecycle", "unit": "ms", "score": 1389.3050, "error": 22.1079, "min": 1376.6024, "max": 1420.7451, "median": 1382.8075, "p95": 1420.7451, "n": 10},
+    {"benchmark": "DispatchBench", "replay": "csgo/s2/issue-345/liquid-vs-betboom-m1-mirage.dem", "variant": "Lifecycle", "unit": "ms", "score": 1484.8809, "error": 18.8604, "min": 1474.1276, "max": 1509.7920, "median": 1481.3799, "p95": 1509.7920, "n": 10},
+    {"benchmark": "DispatchBench", "replay": "dota/s1/normal/271145478.dem", "variant": "Updated1", "unit": "ms", "score": 427.4354, "error": 9.6757, "min": 423.4318, "max": 444.8371, "median": 425.5901, "p95": 444.8371, "n": 10},
+    {"benchmark": "DispatchBench", "replay": "dota/s2/normal/1560289528.dem", "variant": "Updated1", "unit": "ms", "score": 489.1070, "error": 3.7050, "min": 486.1923, "max": 492.7298, "median": 488.8742, "p95": 492.7298, "n": 10},
+    {"benchmark": "DispatchBench", "replay": "deadlock/newer/19206063.dem", "variant": "Updated1", "unit": "ms", "score": 1437.7325, "error": 21.4734, "min": 1426.0247, "max": 1463.0290, "median": 1431.1108, "p95": 1463.0290, "n": 10},
+    {"benchmark": "DispatchBench", "replay": "csgo/s2/issue-345/liquid-vs-betboom-m1-mirage.dem", "variant": "Updated1", "unit": "ms", "score": 1515.5887, "error": 20.6936, "min": 1503.7835, "max": 1545.7782, "median": 1510.3916, "p95": 1545.7782, "n": 10},
+    {"benchmark": "DispatchBench", "replay": "dota/s1/normal/271145478.dem", "variant": "Updated8", "unit": "ms", "score": 484.3560, "error": 4.6698, "min": 479.9704, "max": 489.8671, "median": 483.5960, "p95": 489.8671, "n": 10},
+    {"benchmark": "DispatchBench", "replay": "dota/s2/normal/1560289528.dem", "variant": "Updated8", "unit": "ms", "score": 534.2304, "error": 7.6754, "min": 529.0625, "max": 543.6787, "median": 532.6081, "p95": 543.6787, "n": 10},
+    {"benchmark": "DispatchBench", "replay": "deadlock/newer/19206063.dem", "variant": "Updated8", "unit": "ms", "score": 1513.0132, "error": 21.4141, "min": 1501.1121, "max": 1548.8126, "median": 1507.7493, "p95": 1548.8126, "n": 10},
+    {"benchmark": "DispatchBench", "replay": "csgo/s2/issue-345/liquid-vs-betboom-m1-mirage.dem", "variant": "Updated8", "unit": "ms", "score": 1566.8656, "error": 6.5486, "min": 1560.3199, "max": 1573.9843, "median": 1566.2597, "p95": 1573.9843, "n": 10},
+    {"benchmark": "PropertyChangeBench", "replay": "dota/s1/normal/271145478.dem", "variant": "Baseline", "unit": "ms", "score": 421.7788, "error": 8.8298, "min": 417.8728, "max": 437.6873, "median": 420.4506, "p95": 437.6873, "n": 10},
+    {"benchmark": "PropertyChangeBench", "replay": "dota/s2/normal/1560289528.dem", "variant": "Baseline", "unit": "ms", "score": 495.8376, "error": 5.1174, "min": 492.8524, "max": 501.3902, "median": 494.4882, "p95": 501.3902, "n": 10},
+    {"benchmark": "PropertyChangeBench", "replay": "deadlock/newer/19206063.dem", "variant": "Baseline", "unit": "ms", "score": 1386.8883, "error": 24.7609, "min": 1368.0276, "max": 1417.7051, "median": 1379.0946, "p95": 1417.7051, "n": 10},
+    {"benchmark": "PropertyChangeBench", "replay": "csgo/s2/issue-345/liquid-vs-betboom-m1-mirage.dem", "variant": "Baseline", "unit": "ms", "score": 1503.6560, "error": 7.1856, "min": 1495.2104, "max": 1510.6870, "median": 1503.0969, "p95": 1510.6870, "n": 10},
+    {"benchmark": "PropertyChangeBench", "replay": "dota/s1/normal/271145478.dem", "variant": "WildcardSingle", "unit": "ms", "score": 467.2927, "error": 5.2849, "min": 463.1090, "max": 473.6867, "median": 466.5366, "p95": 473.6867, "n": 10},
+    {"benchmark": "PropertyChangeBench", "replay": "dota/s2/normal/1560289528.dem", "variant": "WildcardSingle", "unit": "ms", "score": 538.3835, "error": 19.3460, "min": 528.4644, "max": 573.4584, "median": 536.0621, "p95": 573.4584, "n": 10},
+    {"benchmark": "PropertyChangeBench", "replay": "deadlock/newer/19206063.dem", "variant": "WildcardSingle", "unit": "ms", "score": 1538.2459, "error": 9.2392, "min": 1528.5159, "max": 1549.6283, "median": 1537.6738, "p95": 1549.6283, "n": 10},
+    {"benchmark": "PropertyChangeBench", "replay": "csgo/s2/issue-345/liquid-vs-betboom-m1-mirage.dem", "variant": "WildcardSingle", "unit": "ms", "score": 1590.3597, "error": 17.4982, "min": 1577.9159, "max": 1611.1777, "median": 1585.9217, "p95": 1611.1777, "n": 10}
+  ],
+  "failures": [
+
+  ]
+}

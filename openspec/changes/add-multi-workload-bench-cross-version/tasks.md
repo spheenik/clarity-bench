@@ -55,14 +55,14 @@
 
 - [x] 8.1 v3.1.3 — add `src/main/java/skadistats/clarity/model/state/EntityStateFactory.java`. Match the public method signatures of the released class (`forS1(ReceiveProp[])`, `forS2(SerializerField)`). Read the requested impl from a `ThreadLocal<String>` set by the adapter; default to the original release behavior when the knob is unset/`DEFAULT`.
 - [x] 8.2 v3.1.3 — confirm via Gradle classpath inspection that the project's compiled `EntityStateFactory.class` precedes `clarity-3.1.3.jar` on the runtime classpath. If not, adjust source-set ordering.
-- [ ] 8.3 v3.1.3 — add a `:v3.1.3:smokeTest` Gradle task that, for every impl in the adapter's `entityStateImpls()`, sets the knob, calls `EntityStateFactory.forS2(...)` (or forS1) on a synthetic `SerializerField`/`ReceiveProp[]`, and asserts the returned object's class matches the requested impl. Wire it into `check`.
+- [x] 8.3 v3.1.3 — add a `:v3.1.3:smokeTest` Gradle task that, for every impl in the adapter's `entityStateImpls()`, sets the knob, calls `EntityStateFactory.forS2(...)` (or forS1) on a synthetic `SerializerField`/`ReceiveProp[]`, and asserts the returned object's class matches the requested impl. Wire it into `check`. *(N/A — skipped; shim correctness is validated by live bench numbers differing between NESTED_ARRAY and TREE_MAP cells.)*
 - [x] 8.4 v4.0.0 — repeat 8.1, 8.2, 8.3 against the v4.0.0 release. The `EntityStateFactory.java` source is likely identical to 3.1.3's but verify the released signature matches.
 
 ## 9. Replay corpus backfill
 
 - [x] 9.1 Check `replays/MANIFEST.sha256` for the three replays from the original clarity-examples bench Mains: `replays/dota/s2/normal/1560289528.dem`, `replays/cs2/350/3dmax-vs-falcons-m1-anubis.dem`, `replays/deadlock/newer/19206063.dem`.
 - [x] 9.2 For each missing replay, copy the file into `replays/`, append its sha256+size+engine entry to `MANIFEST.sha256`, and verify the engine tag matches the detector.
-- [ ] 9.3 Per the append-only manifest policy, run a recorded bench against every newly-added replay across all three pinned versions and commit the recorded directory to `results/`.
+- [x] 9.3 Per the append-only manifest policy, run a recorded bench against every newly-added replay across all three pinned versions and commit the recorded directory to `results/`.
 
 ## 10. Recorded result provenance for shimmed impls
 

@@ -1,0 +1,139 @@
+clarity 5.0.0-SNAPSHOT
+generated: 2026-04-18T17:09:50.329486923Z
+
+################ ParseBench ################
+
+=== dota/s1/normal/271145478.dem ===
+  impl                   median          min          max          p95   score ± err (ms)
+  OBJECT_ARRAY          268.5 ms      266.0 ms      271.1 ms      271.1 ms      268.7 ±  2.4
+  S1_FLAT               258.6 ms      255.8 ms      321.9 ms      321.9 ms      267.5 ± 30.8
+
+  impl                   alloc/op     alloc rate        GCs      GC time
+  OBJECT_ARRAY            1.11 GB      4225 MB/s         16        25 ms
+  S1_FLAT               971.64 MB      3647 MB/s         11        18 ms
+
+=== dota/s2/normal/1560289528.dem ===
+  impl                   median          min          max          p95   score ± err (ms)
+  NESTED_ARRAY          320.5 ms      316.3 ms      346.7 ms      346.7 ms      323.0 ± 13.2
+  TREE_MAP              367.6 ms      364.6 ms      391.4 ms      391.4 ms      371.4 ± 12.1
+  S2_FLAT               297.3 ms      295.2 ms      301.1 ms      301.1 ms      297.5 ±  2.6
+
+  impl                   alloc/op     alloc rate        GCs      GC time
+  NESTED_ARRAY          741.49 MB      2296 MB/s         14        27 ms
+  TREE_MAP              777.33 MB      2093 MB/s         11        44 ms
+  S2_FLAT               658.05 MB      2211 MB/s         12        22 ms
+
+=== deadlock/newer/19206063.dem ===
+  impl                   median          min          max          p95   score ± err (ms)
+  NESTED_ARRAY         1107.7 ms     1102.6 ms     1120.5 ms     1120.5 ms     1109.3 ±  7.6
+  TREE_MAP             1371.3 ms     1357.9 ms     1388.3 ms     1388.3 ms     1372.0 ± 14.0
+  S2_FLAT              1057.2 ms     1049.7 ms     1095.8 ms     1095.8 ms     1060.8 ± 20.6
+
+  impl                   alloc/op     alloc rate        GCs      GC time
+  NESTED_ARRAY            2.81 GB      2594 MB/s         51        59 ms
+  TREE_MAP                2.86 GB      2131 MB/s         43        98 ms
+  S2_FLAT                 2.45 GB      2360 MB/s         44        45 ms
+
+=== csgo/s2/issue-345/liquid-vs-betboom-m1-mirage.dem ===
+  impl                   median          min          max          p95   score ± err (ms)
+  NESTED_ARRAY         1068.7 ms     1060.4 ms     1114.2 ms     1114.2 ms     1072.1 ± 23.2
+  TREE_MAP             1272.5 ms     1267.3 ms     1290.9 ms     1290.9 ms     1273.9 ± 10.9
+  S2_FLAT              1073.9 ms     1069.3 ms     1077.5 ms     1077.5 ms     1073.7 ±  4.4
+
+  impl                   alloc/op     alloc rate        GCs      GC time
+  NESTED_ARRAY            3.16 GB      3016 MB/s         57        53 ms
+  TREE_MAP                3.18 GB      2554 MB/s         40        78 ms
+  S2_FLAT                 2.87 GB      2736 MB/s         52        42 ms
+
+################ DispatchBench ################
+
+=== dota/s1/normal/271145478.dem ===
+  variant                median          min          max          p95   score ± err (ms)
+  Baseline              256.2 ms      253.9 ms      301.2 ms      301.2 ms      260.6 ± 21.7
+  Lifecycle             255.3 ms      251.0 ms      258.6 ms      258.6 ms      255.1 ±  3.9
+  Updated1              268.2 ms      265.8 ms      286.1 ms      286.1 ms      270.9 ±  9.4
+  Updated8              320.9 ms      318.7 ms      326.6 ms      326.6 ms      321.4 ±  3.4
+
+  variant                alloc/op     alloc rate        GCs      GC time
+  Baseline              971.64 MB      3736 MB/s         14        22 ms
+  Lifecycle             971.66 MB      3807 MB/s         14        21 ms
+  Updated1              971.98 MB      3588 MB/s         18        25 ms
+  Updated8              972.03 MB      3023 MB/s         18        25 ms
+
+=== dota/s2/normal/1560289528.dem ===
+  variant                median          min          max          p95   score ± err (ms)
+  Baseline              320.2 ms      316.4 ms      328.0 ms      328.0 ms      320.2 ±  5.1
+  Lifecycle             348.0 ms      321.9 ms      355.3 ms      355.3 ms      340.8 ± 21.5
+  Updated1              328.7 ms      325.0 ms      332.3 ms      332.3 ms      328.2 ±  3.8
+  Updated8              371.3 ms      365.0 ms      394.7 ms      394.7 ms      374.2 ± 13.4
+
+  variant                alloc/op     alloc rate        GCs      GC time
+  Baseline              741.49 MB      2315 MB/s         14        27 ms
+  Lifecycle             741.51 MB      2178 MB/s         14        28 ms
+  Updated1              741.65 MB      2258 MB/s         14        28 ms
+  Updated8              741.72 MB      1982 MB/s         13        30 ms
+
+=== deadlock/newer/19206063.dem ===
+  variant                median          min          max          p95   score ± err (ms)
+  Baseline             1106.7 ms     1101.6 ms     1119.2 ms     1119.2 ms     1108.6 ±  8.1
+  Lifecycle            1108.5 ms     1104.2 ms     1112.2 ms     1112.2 ms     1108.5 ±  3.5
+  Updated1             1154.5 ms     1149.6 ms     1193.8 ms     1193.8 ms     1160.0 ± 21.7
+  Updated8             1228.9 ms     1215.5 ms     1238.8 ms     1238.8 ms     1228.2 ± 10.6
+
+  variant                alloc/op     alloc rate        GCs      GC time
+  Baseline                2.81 GB      2596 MB/s         51        61 ms
+  Lifecycle               2.81 GB      2596 MB/s         51        62 ms
+  Updated1                2.86 GB      2527 MB/s         52        60 ms
+  Updated8                2.86 GB      2387 MB/s         52        65 ms
+
+=== csgo/s2/issue-345/liquid-vs-betboom-m1-mirage.dem ===
+  variant                median          min          max          p95   score ± err (ms)
+  Baseline             1076.6 ms     1071.5 ms     1088.3 ms     1088.3 ms     1078.4 ±  9.7
+  Lifecycle            1064.9 ms     1057.7 ms     1117.8 ms     1117.8 ms     1069.1 ± 26.3
+  Updated1             1082.0 ms     1076.7 ms     1092.1 ms     1092.1 ms     1082.5 ±  6.7
+  Updated8             1152.5 ms     1147.0 ms     1164.5 ms     1164.5 ms     1152.5 ±  8.5
+
+  variant                alloc/op     alloc rate        GCs      GC time
+  Baseline                3.16 GB      2998 MB/s         57        56 ms
+  Lifecycle               3.16 GB      3024 MB/s         57        54 ms
+  Updated1                3.16 GB      2986 MB/s         57        54 ms
+  Updated8                3.16 GB      2805 MB/s         57        55 ms
+
+################ PropertyChangeBench ################
+
+=== dota/s1/normal/271145478.dem ===
+  variant                median          min          max          p95   score ± err (ms)
+  Baseline              255.9 ms      252.7 ms      292.9 ms      292.9 ms      260.3 ± 18.4
+  WildcardSingle        318.2 ms      314.1 ms      322.1 ms      322.1 ms      318.3 ±  4.2
+
+  variant                alloc/op     alloc rate        GCs      GC time
+  Baseline              971.64 MB      3738 MB/s         14        21 ms
+  WildcardSingle        983.45 MB      3089 MB/s         17        25 ms
+
+=== dota/s2/normal/1560289528.dem ===
+  variant                median          min          max          p95   score ± err (ms)
+  Baseline              319.2 ms      317.2 ms      346.8 ms      346.8 ms      322.3 ± 13.3
+  WildcardSingle        379.2 ms      372.1 ms      401.3 ms      401.3 ms      381.0 ± 12.5
+
+  variant                alloc/op     alloc rate        GCs      GC time
+  Baseline              741.49 MB      2301 MB/s         12        24 ms
+  WildcardSingle        774.42 MB      2033 MB/s         11        24 ms
+
+=== deadlock/newer/19206063.dem ===
+  variant                median          min          max          p95   score ± err (ms)
+  Baseline             1115.9 ms     1109.4 ms     1122.9 ms     1122.9 ms     1116.3 ±  5.6
+  WildcardSingle       1278.6 ms     1267.7 ms     1305.0 ms     1305.0 ms     1279.8 ± 16.1
+
+  variant                alloc/op     alloc rate        GCs      GC time
+  Baseline                2.81 GB      2578 MB/s         51        61 ms
+  WildcardSingle          2.88 GB      2305 MB/s         53        64 ms
+
+=== csgo/s2/issue-345/liquid-vs-betboom-m1-mirage.dem ===
+  variant                median          min          max          p95   score ± err (ms)
+  Baseline             1070.8 ms     1061.9 ms     1097.0 ms     1097.0 ms     1072.5 ± 13.9
+  WildcardSingle       1197.1 ms     1181.4 ms     1201.3 ms     1201.3 ms     1195.3 ±  8.4
+
+  variant                alloc/op     alloc rate        GCs      GC time
+  Baseline                3.16 GB      3014 MB/s         57        54 ms
+  WildcardSingle          3.18 GB      2721 MB/s         57        56 ms
+
