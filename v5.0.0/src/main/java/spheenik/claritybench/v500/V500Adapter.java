@@ -11,6 +11,8 @@ import spheenik.claritybench.BenchAdapter;
 import spheenik.claritybench.Capabilities;
 import spheenik.claritybench.Engines;
 import spheenik.claritybench.Workloads;
+import spheenik.claritybench.v500.processors.AnalyzerCopy;
+import spheenik.claritybench.v500.processors.AnalyzerDelta;
 import spheenik.claritybench.v500.processors.Baseline;
 import spheenik.claritybench.v500.processors.Lifecycle;
 import spheenik.claritybench.v500.processors.Updated1;
@@ -47,7 +49,7 @@ public class V500Adapter implements BenchAdapter {
                 .entityStateImpl("S2_FLAT",      Engines.S2_FAMILY);
 
         Set<String> allEngines = Engines.ALL;
-        for (String v : new String[]{"Baseline", "Lifecycle", "Updated1", "Updated8"}) {
+        for (String v : new String[]{"Baseline", "Lifecycle", "Updated1", "Updated8", "AnalyzerCopy", "AnalyzerDelta"}) {
             b.dispatchVariant(v, allEngines);
         }
         for (String v : new String[]{"Baseline", "WildcardSingle"}) {
@@ -89,6 +91,8 @@ public class V500Adapter implements BenchAdapter {
             case "Lifecycle"       -> new Lifecycle();
             case "Updated1"        -> new Updated1();
             case "Updated8"        -> new Updated8();
+            case "AnalyzerCopy"    -> new AnalyzerCopy();
+            case "AnalyzerDelta"   -> new AnalyzerDelta();
             case "WildcardSingle"  -> new WildcardSingle();
             default -> throw new IllegalArgumentException(
                     "Unknown variant '" + variant + "' for workload '" + workload + "'");

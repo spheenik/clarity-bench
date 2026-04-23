@@ -46,6 +46,8 @@ public final class Workloads {
             "Lifecycle",
             "Updated1",
             "Updated8",
+            "AnalyzerCopy",
+            "AnalyzerDelta",
             "WildcardSingle");
 
     private Workloads() {}
