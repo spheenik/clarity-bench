@@ -32,10 +32,22 @@ public class V400Adapter implements BenchAdapter {
         return "4.0.1";
     }
 
+    // Translate this version's frozen EngineId names to the harness canonical
+    // vocabulary. clarity 4.0.1 uses CSGO_S2 / CSGO_S1 — names that were later
+    // renamed back to CS2 / CSGO in the live tree.
+    private static String toCanonical(String engineName) {
+        return switch (engineName) {
+            case "CSGO_S2" -> Engines.CS2;
+            case "CSGO_S1" -> Engines.CSGO;
+            default -> engineName;
+        };
+    }
+
     @Override
     public Capabilities capabilities() {
         String[] knownEngines = Arrays.stream(EngineId.values())
                 .map(Enum::name)
+                .map(V400Adapter::toCanonical)
                 .toArray(String[]::new);
         var b = Capabilities.builder()
                 .supportedEngines(knownEngines)
@@ -62,7 +74,7 @@ public class V400Adapter implements BenchAdapter {
     @Override
     public String detectEngine(Path replayPath) throws IOException {
         try (Source src = new MappedFileSource(replayPath.toString())) {
-            return src.determineEngineType().getId().name();
+            return toCanonical(src.determineEngineType().getId().name());
         }
     }
 
