@@ -1,0 +1,20 @@
+hardware tag:    ryzen9950x
+CPU model:       AMD Ryzen 9 9950X 16-Core Processor
+cores:           32 (logical) / 16 (physical)
+RAM bytes:       64919736320
+OS:              Linux 6.19.12-arch1-1
+JVM:             OpenJDK 64-Bit Server VM 21.0.11+10
+JVM args:        [-Dfile.encoding=UTF-8, -Duser.country=US, -Duser.language=en, -Duser.variant]
+bench repo SHA:  0599f9a0a2945c47f694b199ffafe3f3b8fc4999
+
+replays used:
+  7334934eacd3dea8ffb8c2609d09de7407cd4838964e6e6061319e1298e87f36  195877179  DOTA_S2  dota/s2/340/8168882574_1198277651.dem
+  6cdbd433acb897b44e6144db056bd90f4834b7e7617443637e261b84441fc513  127629480  DOTA_S1  dota/s1/normal/271145478.dem
+  4de2f5927bff83e473a3278228a991db96f641b504d91c498fcb5d0039e9eee1  39872629  DOTA_S2  dota/s2/normal/1560289528.dem
+  382719ae11677f184a0aee1139a93a5302740c4ad9c76cb899a87882df4c1827  281960770  DEADLOCK  deadlock/newer/19206063.dem
+  459688bbe451f599d9231d00ea31de5fa18e7b5980d3b72fc570b1761e8a2c07  401158550  CS2  csgo/s2/issue-345/liquid-vs-betboom-m1-mirage.dem
+
+=== adapters benched ===
+
+--- 5.0.0-SNAPSHOT ---
+clarity JAR:     /home/spheenik/.m2/repository/com/skadistats/clarity/5.0.0-SNAPSHOT/clarity-5.0.0-SNAPSHOT.jar  sha256=8dd1d665765d27bda923924bee1e31f0a1b04da12902679833787371c415afb5  mtime=2026-05-10T13:30:41.992630051Z
