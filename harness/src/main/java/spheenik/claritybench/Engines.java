@@ -14,17 +14,17 @@ import java.util.Set;
 public final class Engines {
     public static final String DOTA_S1  = "DOTA_S1";
     public static final String DOTA_S2  = "DOTA_S2";
-    public static final String CSGO_S1  = "CSGO_S1";
-    public static final String CSGO_S2  = "CSGO_S2";
+    public static final String CSGO     = "CSGO";
+    public static final String CS2      = "CS2";
     public static final String DEADLOCK = "DEADLOCK";
 
-    public static final Set<String> ALL = Set.of(DOTA_S1, DOTA_S2, CSGO_S1, CSGO_S2, DEADLOCK);
+    public static final Set<String> ALL = Set.of(DOTA_S1, DOTA_S2, CSGO, CS2, DEADLOCK);
 
     /** Source 1 family: games whose demos use the Source 1 engine. */
-    public static final Set<String> S1_FAMILY = Set.of(DOTA_S1, CSGO_S1);
+    public static final Set<String> S1_FAMILY = Set.of(DOTA_S1, CSGO);
 
     /** Source 2 family: games whose demos use the Source 2 engine. */
-    public static final Set<String> S2_FAMILY = Set.of(DOTA_S2, CSGO_S2, DEADLOCK);
+    public static final Set<String> S2_FAMILY = Set.of(DOTA_S2, CS2, DEADLOCK);
 
     private Engines() {}
 }
