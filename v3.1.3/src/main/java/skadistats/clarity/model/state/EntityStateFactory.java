@@ -55,7 +55,7 @@ public class EntityStateFactory {
         }
         if ("TREE_MAP".equals(impl)) {
             // TreeMapEntityState's no-arg constructor — SerializerField is unused
-            // for this impl in 4.0.0.
+            // for this impl in 3.1.3.
             return new TreeMapEntityState();
         }
         throw new IllegalStateException(

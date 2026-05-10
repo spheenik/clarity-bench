@@ -29,7 +29,7 @@ public class V400Adapter implements BenchAdapter {
 
     @Override
     public String version() {
-        return "4.0.0";
+        return "4.0.1";
     }
 
     @Override
@@ -56,7 +56,7 @@ public class V400Adapter implements BenchAdapter {
     @Override
     public String implSelectionProvenance() {
         return "S2 entity-state impls selected via shadow EntityStateFactory shim "
-                + "(no public runtime API in clarity 4.0.0).";
+                + "(no public runtime API in clarity 4.0.1).";
     }
 
     @Override

@@ -17,7 +17,7 @@ Three workloads are measured per release:
 ```
 harness/   shared bench code (no clarity imports — verified at compile time)
 v3.1.3/    pinned to released 3.1.3 from Maven Central; impl selection via shadow
-v4.0.0/    pinned to released 4.0.0 from Maven Central; impl selection via shadow
+v4.0.1/    pinned to released 4.0.1 from Maven Central; impl selection via shadow
 v5.0.0/    pinned to 5.0.0-SNAPSHOT from mavenLocal (= the in-development candidate)
 replays/   on-disk replay corpus (gitignored; manifest pinned by sha256)
 results/   tracked baseline runs
@@ -49,7 +49,7 @@ Globally-unique names; the adapter declares per-engine applicability:
 | `TREE_MAP`     | `S2TreeMapEntityState`     | S2     |
 | `S2_FLAT`      | `S2FlatEntityState`        | S2     |
 
-`S1_FLAT` and `S2_FLAT` exist only in v5.0.0+. `OBJECT_ARRAY`, `NESTED_ARRAY`, and `TREE_MAP` are exposed by all three adapters — for v3.1.3 / v4.0.0 the public runtime API never exposed selection, so each adapter ships a shadow `skadistats.clarity.model.state.EntityStateFactory` class that the JVM loads in preference to the released-jar copy. See "Shadow entity-state factory" below.
+`S1_FLAT` and `S2_FLAT` exist only in v5.0.0+. `OBJECT_ARRAY`, `NESTED_ARRAY`, and `TREE_MAP` are exposed by all three adapters — for v3.1.3 / v4.0.1 the public runtime API never exposed selection, so each adapter ships a shadow `skadistats.clarity.model.state.EntityStateFactory` class that the JVM loads in preference to the released-jar copy. See "Shadow entity-state factory" below.
 
 ## Running a bench
 
@@ -58,7 +58,7 @@ Each `:vX.Y.Z:run` is a fresh JVM with that version's classpath.
 ```bash
 # released versions
 ./gradlew :v3.1.3:run --args="--replays-root /home/spheenik/projects/replays"
-./gradlew :v4.0.0:run --args="--replays-root /home/spheenik/projects/replays"
+./gradlew :v4.0.1:run --args="--replays-root /home/spheenik/projects/replays"
 
 # candidate (5.x SNAPSHOT) — publish first
 cd ../clarity && ./gradlew publishToMavenLocal && cd -
@@ -77,7 +77,7 @@ Add `--record` to persist a run into `results/`:
 
 ```bash
 # one impl across all versions
-./gradlew :v3.1.3:run :v4.0.0:run :v5.0.0:run \
+./gradlew :v3.1.3:run :v4.0.1:run :v5.0.0:run \
   --args="--replays-root /home/spheenik/projects/replays --impl NESTED_ARRAY"
 
 # only the propchange workload
@@ -107,11 +107,11 @@ Prints `<relative-path> → <detected-engine> → <manifest-tag>` per entry, wit
 
 ## Shadow entity-state factory
 
-clarity 3.1.3 and 4.0.0 do not expose a runtime entity-state-selection API — `SimpleRunner` has no `withS2EntityState`/`withS1EntityState` method, and `EntityStateFactory.forS1`/`forS2` are static utilities with hardcoded impls. To bench `TREE_MAP` (or any non-default impl) on those versions, each subproject ships a same-package class:
+clarity 3.1.3 and 4.0.1 do not expose a runtime entity-state-selection API — `SimpleRunner` has no `withS2EntityState`/`withS1EntityState` method, and `EntityStateFactory.forS1`/`forS2` are static utilities with hardcoded impls. To bench `TREE_MAP` (or any non-default impl) on those versions, each subproject ships a same-package class:
 
 ```
-v4.0.0/src/main/java/skadistats/clarity/model/state/EntityStateFactory.java   # shadow
-v4.0.0/src/main/java/skadistats/clarity/model/state/EntityStateFactoryShim.java # config knob
+v4.0.1/src/main/java/skadistats/clarity/model/state/EntityStateFactory.java   # shadow
+v4.0.1/src/main/java/skadistats/clarity/model/state/EntityStateFactoryShim.java # config knob
 ```
 
 Gradle's classpath places the project's compiled classes ahead of `clarity-X.Y.Z.jar`, so the JVM resolves to the shadow rather than the class inside the jar. The shadow's `forS2` reads a `ThreadLocal` impl name set by the adapter before `runner.runWith(...)` and routes to the requested `EntityState` constructor. When the knob is unset or `DEFAULT`, the shadow's behavior is byte-for-byte equivalent to the released jar's (verified via `javap -c`).
@@ -128,6 +128,6 @@ Every adapter pins root logger to WARN. `BenchMain` refuses to start if anything
 
 These numbers reflect "what JDK 21 makes of clarity vX.Y.Z bytecode on this hardware." They are NOT a reconstruction of historical performance under the JDKs each version was originally built for. And later versions do strictly *more work per packet* than earlier ones (more decoded fields, more state) — a slowdown is "users get more for the same time," not a regression.
 
-For impls reached via the shadow shim on v3.1.3 / v4.0.0: the recorded result is *"that parser era + that impl class"*, not "what that release shipped to users." That's the deliberate counterfactual — the comparison is "would TREE_MAP have helped in the 4.0 parser?" rather than "what was production performance in 4.0?"
+For impls reached via the shadow shim on v3.1.3 / v4.0.1: the recorded result is *"that parser era + that impl class"*, not "what that release shipped to users." That's the deliberate counterfactual — the comparison is "would TREE_MAP have helped in the 4.0 parser?" rather than "what was production performance in 4.0?"
 
 See `openspec/specs/cross-version-bench/spec.md` for the full requirement set.

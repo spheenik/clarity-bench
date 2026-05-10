@@ -8,7 +8,7 @@ repositories {
 
 dependencies {
     implementation(project(":harness"))
-    implementation("com.skadistats:clarity:4.0.0")
+    implementation("com.skadistats:clarity:4.0.1")
 }
 
 application {

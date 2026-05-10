@@ -4,12 +4,12 @@ import skadistats.clarity.io.s1.ReceiveProp;
 import skadistats.clarity.io.s2.field.SerializerField;
 
 /**
- * <strong>SHADOW</strong> of clarity 4.0.0's {@code EntityStateFactory}.
+ * <strong>SHADOW</strong> of clarity 4.0.1's {@code EntityStateFactory}.
  * Compiled into this subproject's classes/ directory and placed ahead of
- * {@code clarity-4.0.0.jar} on the runtime classpath, so the JVM resolves
+ * {@code clarity-4.0.1.jar} on the runtime classpath, so the JVM resolves
  * to this class instead of the one inside the released jar. Public method
  * signatures match the released class verbatim — see
- * {@code javap -c clarity-4.0.0.jar/skadistats/clarity/model/state/EntityStateFactory.class}.
+ * {@code javap -c clarity-4.0.1.jar/skadistats/clarity/model/state/EntityStateFactory.class}.
  *
  * <p>The default behavior (when {@link EntityStateFactoryShim#getRequestedImpl()}
  * returns {@code null} or {@code "DEFAULT"}) replicates the original bytecode
@@ -45,7 +45,7 @@ public class EntityStateFactory {
         }
         throw new IllegalStateException(
                 "Shadowed EntityStateFactory got impl='" + impl + "' for an S1 entity, but only "
-                + "OBJECT_ARRAY exists in clarity 4.0.0. (S1_FLAT is a 5.x-only addition.)");
+                + "OBJECT_ARRAY exists in clarity 4.0.1. (S1_FLAT is a 5.x-only addition.)");
     }
 
     public static EntityState forS2(SerializerField sf) {
@@ -55,11 +55,11 @@ public class EntityStateFactory {
         }
         if ("TREE_MAP".equals(impl)) {
             // TreeMapEntityState's no-arg constructor — SerializerField is unused
-            // for this impl in 4.0.0.
+            // for this impl in 4.0.1.
             return new TreeMapEntityState();
         }
         throw new IllegalStateException(
                 "Shadowed EntityStateFactory got impl='" + impl + "' for an S2 entity. "
-                + "Valid in clarity 4.0.0: NESTED_ARRAY, TREE_MAP. (S2_FLAT is a 5.x-only addition.)");
+                + "Valid in clarity 4.0.1: NESTED_ARRAY, TREE_MAP. (S2_FLAT is a 5.x-only addition.)");
     }
 }

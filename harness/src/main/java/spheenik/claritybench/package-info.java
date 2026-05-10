@@ -2,7 +2,7 @@
  * Cross-version Clarity benchmark harness.
  *
  * <p>One {@link spheenik.claritybench.BenchAdapter} per pinned clarity version
- * (under {@code v3.1.3/}, {@code v4.0.0/}, {@code v5.0.0/}); shared
+ * (under {@code v3.1.3/}, {@code v4.0.1/}, {@code v5.0.0/}); shared
  * orchestration, JMH wiring, manifest verification, and CLI plumbing live in
  * this package. The harness imports nothing from {@code skadistats.clarity.*}.
  *
