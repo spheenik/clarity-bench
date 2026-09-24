@@ -1,0 +1,4 @@
+# <id> <engine> <sha256> <size_bytes> <path relative to --replays-root>
+cs2-anubis CS2 3f29578f936ec98d32c79f097c73fee19c0140bea094f4f2d3908cedce650d40 454787764 cs2/350/3dmax-vs-falcons-m1-anubis.dem
+dota-2016 DOTA_S2 b00988693a795cb27e3536c527079761e2f1cba8fbfef1425d9ed92dd0367a35 63529777 dota/s2/normal/2267054840.dem
+dota-2025 DOTA_S2 7334934eacd3dea8ffb8c2609d09de7407cd4838964e6e6061319e1298e87f36 195877179 dota/s2/340/8168882574_1198277651.dem

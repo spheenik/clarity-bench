@@ -1,0 +1,1934 @@
+{
+ "context": {
+  "date": "2026-09-24",
+  "host": "ryzen9950x",
+  "cpu": "AMD Ryzen 9 9950X 16-Core Processor",
+  "kernel": "7.2.4-arch1-2",
+  "java": "openjdk version \"21.0.12.1\" 2026-08-18",
+  "go": "go version go1.27.0-X:nodwarf5 linux/amd64",
+  "python": "3.14.7",
+  "load_start": [
+   "1.08",
+   "1.01",
+   "1.99"
+  ],
+  "load_end": [
+   "1.52",
+   "1.53",
+   "1.86"
+  ],
+  "rounds": 7,
+  "loop_iterations": 10,
+  "loop_warmup": 3,
+  "versions": {
+   "clarity 5.0.0-SNAPSHOT": "next@c9d00c17",
+   "demoparser2 0.42.0": "0.42.0",
+   "demoparser2 0.41.1": "0.41.1",
+   "demoinfocs v5.2.0": "v5.2.0",
+   "demoinfocs v5.1.4": "v5.1.4",
+   "manta v1.5.0": "v1.5.0",
+   "manta 91f7979": "v1.4.8-0.20260324190535-91f79795c479"
+  },
+  "replays": {
+   "cs2-anubis": "cs2/350/3dmax-vs-falcons-m1-anubis.dem",
+   "dota-2016": "dota/s2/normal/2267054840.dem",
+   "dota-2025": "dota/s2/340/8168882574_1198277651.dem"
+  }
+ },
+ "results": {
+  "process": {
+   "cs2-anubis|clarity": [
+    {
+     "iterations": [
+      {
+       "wall": 1.4589,
+       "cpu": 2.7
+      }
+     ],
+     "process_wall": 1.58,
+     "process_cpu": 2.97,
+     "rss_mb": 1136.88671875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.438,
+       "cpu": 2.64
+      }
+     ],
+     "process_wall": 1.56,
+     "process_cpu": 2.91,
+     "rss_mb": 1137.14453125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.4372,
+       "cpu": 2.63
+      }
+     ],
+     "process_wall": 1.56,
+     "process_cpu": 2.9,
+     "rss_mb": 1138.734375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.4431,
+       "cpu": 2.59
+      }
+     ],
+     "process_wall": 1.56,
+     "process_cpu": 2.87,
+     "rss_mb": 1134.58984375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.4209,
+       "cpu": 2.57
+      }
+     ],
+     "process_wall": 1.53,
+     "process_cpu": 2.84,
+     "rss_mb": 1144.46875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.4161,
+       "cpu": 2.55
+      }
+     ],
+     "process_wall": 1.53,
+     "process_cpu": 2.8000000000000003,
+     "rss_mb": 1131.26953125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.4248,
+       "cpu": 2.56
+      }
+     ],
+     "process_wall": 1.54,
+     "process_cpu": 2.81,
+     "rss_mb": 1144.63671875
+    }
+   ],
+   "cs2-anubis|dp2-0.42.0-mt": [
+    {
+     "iterations": [
+      {
+       "wall": 0.4731,
+       "cpu": 4.4872
+      }
+     ],
+     "process_wall": 0.53,
+     "process_cpu": 4.54,
+     "rss_mb": 1156.09765625
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.4451,
+       "cpu": 4.5939
+      }
+     ],
+     "process_wall": 0.5,
+     "process_cpu": 4.640000000000001,
+     "rss_mb": 1153.15625
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.4659,
+       "cpu": 4.5345
+      }
+     ],
+     "process_wall": 0.51,
+     "process_cpu": 4.58,
+     "rss_mb": 1154.64453125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.437,
+       "cpu": 4.5593
+      }
+     ],
+     "process_wall": 0.48,
+     "process_cpu": 4.61,
+     "rss_mb": 1158.6484375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.4607,
+       "cpu": 4.5617
+      }
+     ],
+     "process_wall": 0.51,
+     "process_cpu": 4.61,
+     "rss_mb": 1155.53515625
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.4486,
+       "cpu": 4.5899
+      }
+     ],
+     "process_wall": 0.5,
+     "process_cpu": 4.640000000000001,
+     "rss_mb": 1155.64453125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.4455,
+       "cpu": 4.5794
+      }
+     ],
+     "process_wall": 0.5,
+     "process_cpu": 4.630000000000001,
+     "rss_mb": 1157.30078125
+    }
+   ],
+   "cs2-anubis|dp2-0.42.0-st": [
+    {
+     "iterations": [
+      {
+       "wall": 1.6699,
+       "cpu": 3.605
+      }
+     ],
+     "process_wall": 1.72,
+     "process_cpu": 3.65,
+     "rss_mb": 1088.2734375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.6641,
+       "cpu": 3.5765
+      }
+     ],
+     "process_wall": 1.71,
+     "process_cpu": 3.62,
+     "rss_mb": 1088.80078125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.6865,
+       "cpu": 3.6216
+      }
+     ],
+     "process_wall": 1.73,
+     "process_cpu": 3.67,
+     "rss_mb": 1090.53515625
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.6689,
+       "cpu": 3.5771
+      }
+     ],
+     "process_wall": 1.72,
+     "process_cpu": 3.62,
+     "rss_mb": 1090.55859375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.6726,
+       "cpu": 3.6117
+      }
+     ],
+     "process_wall": 1.72,
+     "process_cpu": 3.66,
+     "rss_mb": 1088.07421875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.7003,
+       "cpu": 3.6232
+      }
+     ],
+     "process_wall": 1.75,
+     "process_cpu": 3.67,
+     "rss_mb": 1090.34375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.6677,
+       "cpu": 3.6039
+      }
+     ],
+     "process_wall": 1.71,
+     "process_cpu": 3.65,
+     "rss_mb": 1088.78515625
+    }
+   ],
+   "cs2-anubis|dp2-0.41.1-mt": [
+    {
+     "iterations": [
+      {
+       "wall": 0.5227,
+       "cpu": 4.7946
+      }
+     ],
+     "process_wall": 0.57,
+     "process_cpu": 4.84,
+     "rss_mb": 1216.96484375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.5271,
+       "cpu": 4.7556
+      }
+     ],
+     "process_wall": 0.58,
+     "process_cpu": 4.81,
+     "rss_mb": 1215.52734375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.5176,
+       "cpu": 4.8195
+      }
+     ],
+     "process_wall": 0.57,
+     "process_cpu": 4.87,
+     "rss_mb": 1214.13671875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.5147,
+       "cpu": 4.7585
+      }
+     ],
+     "process_wall": 0.56,
+     "process_cpu": 4.800000000000001,
+     "rss_mb": 1211.796875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.5193,
+       "cpu": 4.8048
+      }
+     ],
+     "process_wall": 0.57,
+     "process_cpu": 4.85,
+     "rss_mb": 1215.484375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.5179,
+       "cpu": 4.8204
+      }
+     ],
+     "process_wall": 0.57,
+     "process_cpu": 4.87,
+     "rss_mb": 1218.8203125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.5193,
+       "cpu": 4.773
+      }
+     ],
+     "process_wall": 0.57,
+     "process_cpu": 4.82,
+     "rss_mb": 1216.4921875
+    }
+   ],
+   "cs2-anubis|dp2-0.41.1-st": [
+    {
+     "iterations": [
+      {
+       "wall": 1.8142,
+       "cpu": 3.7541
+      }
+     ],
+     "process_wall": 1.86,
+     "process_cpu": 3.8,
+     "rss_mb": 1185.234375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.8159,
+       "cpu": 3.7401
+      }
+     ],
+     "process_wall": 1.87,
+     "process_cpu": 3.78,
+     "rss_mb": 1182.80078125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.8137,
+       "cpu": 3.7511
+      }
+     ],
+     "process_wall": 1.86,
+     "process_cpu": 3.79,
+     "rss_mb": 1189.328125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.7974,
+       "cpu": 3.7357
+      }
+     ],
+     "process_wall": 1.85,
+     "process_cpu": 3.78,
+     "rss_mb": 1185.39453125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.8213,
+       "cpu": 3.7289
+      }
+     ],
+     "process_wall": 1.87,
+     "process_cpu": 3.78,
+     "rss_mb": 1184.44921875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.8137,
+       "cpu": 3.7538
+      }
+     ],
+     "process_wall": 1.86,
+     "process_cpu": 3.8000000000000003,
+     "rss_mb": 1183.9921875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.8277,
+       "cpu": 3.7665
+      }
+     ],
+     "process_wall": 1.88,
+     "process_cpu": 3.8200000000000003,
+     "rss_mb": 1183.63671875
+    }
+   ],
+   "cs2-anubis|dic-v5.2.0-default": [
+    {
+     "iterations": [
+      {
+       "wall": 2.2198,
+       "cpu": 6.0001
+      }
+     ],
+     "process_wall": 2.22,
+     "process_cpu": 6.0,
+     "rss_mb": 58.96484375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 2.2446,
+       "cpu": 6.1032
+      }
+     ],
+     "process_wall": 2.24,
+     "process_cpu": 6.1000000000000005,
+     "rss_mb": 57.42578125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 2.2276,
+       "cpu": 6.0651
+      }
+     ],
+     "process_wall": 2.23,
+     "process_cpu": 6.0600000000000005,
+     "rss_mb": 56.7109375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 2.2344,
+       "cpu": 5.9934
+      }
+     ],
+     "process_wall": 2.23,
+     "process_cpu": 5.989999999999999,
+     "rss_mb": 56.25390625
+    },
+    {
+     "iterations": [
+      {
+       "wall": 2.1629,
+       "cpu": 5.7884
+      }
+     ],
+     "process_wall": 2.16,
+     "process_cpu": 5.78,
+     "rss_mb": 55.453125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 2.2146,
+       "cpu": 6.063
+      }
+     ],
+     "process_wall": 2.21,
+     "process_cpu": 6.0600000000000005,
+     "rss_mb": 57.61328125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 2.2113,
+       "cpu": 5.9353
+      }
+     ],
+     "process_wall": 2.21,
+     "process_cpu": 5.930000000000001,
+     "rss_mb": 57.109375
+    }
+   ],
+   "cs2-anubis|dic-v5.2.0-st": [
+    {
+     "iterations": [
+      {
+       "wall": 4.3292,
+       "cpu": 6.4656
+      }
+     ],
+     "process_wall": 4.33,
+     "process_cpu": 6.46,
+     "rss_mb": 53.56640625
+    },
+    {
+     "iterations": [
+      {
+       "wall": 4.3094,
+       "cpu": 6.4903
+      }
+     ],
+     "process_wall": 4.31,
+     "process_cpu": 6.49,
+     "rss_mb": 52.51171875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 4.2963,
+       "cpu": 6.369
+      }
+     ],
+     "process_wall": 4.3,
+     "process_cpu": 6.359999999999999,
+     "rss_mb": 54.4921875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 4.3523,
+       "cpu": 6.4852
+      }
+     ],
+     "process_wall": 4.35,
+     "process_cpu": 6.4799999999999995,
+     "rss_mb": 53.23828125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 4.3185,
+       "cpu": 6.4497
+      }
+     ],
+     "process_wall": 4.32,
+     "process_cpu": 6.44,
+     "rss_mb": 54.765625
+    },
+    {
+     "iterations": [
+      {
+       "wall": 4.281,
+       "cpu": 6.3488
+      }
+     ],
+     "process_wall": 4.28,
+     "process_cpu": 6.34,
+     "rss_mb": 54.109375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 4.3246,
+       "cpu": 6.4501
+      }
+     ],
+     "process_wall": 4.32,
+     "process_cpu": 6.4399999999999995,
+     "rss_mb": 55.03515625
+    }
+   ],
+   "cs2-anubis|dic-v5.1.4-default": [
+    {
+     "iterations": [
+      {
+       "wall": 2.6078,
+       "cpu": 7.55
+      }
+     ],
+     "process_wall": 2.61,
+     "process_cpu": 7.54,
+     "rss_mb": 111.6953125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 2.5496,
+       "cpu": 7.2382
+      }
+     ],
+     "process_wall": 2.55,
+     "process_cpu": 7.24,
+     "rss_mb": 114.33984375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 2.5473,
+       "cpu": 7.2942
+      }
+     ],
+     "process_wall": 2.55,
+     "process_cpu": 7.29,
+     "rss_mb": 109.48046875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 2.5106,
+       "cpu": 6.9082
+      }
+     ],
+     "process_wall": 2.51,
+     "process_cpu": 6.8999999999999995,
+     "rss_mb": 111.2109375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 2.5442,
+       "cpu": 7.1587
+      }
+     ],
+     "process_wall": 2.54,
+     "process_cpu": 7.1499999999999995,
+     "rss_mb": 109.91796875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 2.4595,
+       "cpu": 6.331
+      }
+     ],
+     "process_wall": 2.46,
+     "process_cpu": 6.33,
+     "rss_mb": 113.3359375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 2.5885,
+       "cpu": 7.5535
+      }
+     ],
+     "process_wall": 2.59,
+     "process_cpu": 7.55,
+     "rss_mb": 108.84375
+    }
+   ],
+   "cs2-anubis|dic-v5.1.4-st": [
+    {
+     "iterations": [
+      {
+       "wall": 5.4291,
+       "cpu": 8.0085
+      }
+     ],
+     "process_wall": 5.43,
+     "process_cpu": 8.0,
+     "rss_mb": 42.46875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 5.3723,
+       "cpu": 7.8741
+      }
+     ],
+     "process_wall": 5.37,
+     "process_cpu": 7.869999999999999,
+     "rss_mb": 44.56640625
+    },
+    {
+     "iterations": [
+      {
+       "wall": 5.3917,
+       "cpu": 7.9207
+      }
+     ],
+     "process_wall": 5.39,
+     "process_cpu": 7.91,
+     "rss_mb": 42.19140625
+    },
+    {
+     "iterations": [
+      {
+       "wall": 5.2849,
+       "cpu": 7.7094
+      }
+     ],
+     "process_wall": 5.28,
+     "process_cpu": 7.699999999999999,
+     "rss_mb": 42.92578125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 5.2437,
+       "cpu": 7.5718
+      }
+     ],
+     "process_wall": 5.24,
+     "process_cpu": 7.569999999999999,
+     "rss_mb": 43.42578125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 5.3031,
+       "cpu": 7.7271
+      }
+     ],
+     "process_wall": 5.3,
+     "process_cpu": 7.720000000000001,
+     "rss_mb": 42.8046875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 5.3325,
+       "cpu": 7.8012
+      }
+     ],
+     "process_wall": 5.33,
+     "process_cpu": 7.800000000000001,
+     "rss_mb": 42.03515625
+    }
+   ],
+   "dota-2016|clarity": [
+    {
+     "iterations": [
+      {
+       "wall": 0.5715,
+       "cpu": 1.71
+      }
+     ],
+     "process_wall": 0.69,
+     "process_cpu": 1.98,
+     "rss_mb": 814.390625
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.5729,
+       "cpu": 1.74
+      }
+     ],
+     "process_wall": 0.69,
+     "process_cpu": 2.02,
+     "rss_mb": 810.1875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.5778,
+       "cpu": 1.67
+      }
+     ],
+     "process_wall": 0.71,
+     "process_cpu": 1.96,
+     "rss_mb": 804.38671875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.5816,
+       "cpu": 1.69
+      }
+     ],
+     "process_wall": 0.7,
+     "process_cpu": 1.95,
+     "rss_mb": 805.59375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.5774,
+       "cpu": 1.69
+      }
+     ],
+     "process_wall": 0.7,
+     "process_cpu": 1.96,
+     "rss_mb": 800.109375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.5939,
+       "cpu": 1.77
+      }
+     ],
+     "process_wall": 0.72,
+     "process_cpu": 2.05,
+     "rss_mb": 804.390625
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.5742,
+       "cpu": 1.73
+      }
+     ],
+     "process_wall": 0.7,
+     "process_cpu": 2.0,
+     "rss_mb": 809.09375
+    }
+   ],
+   "dota-2016|manta-v1.5.0": [
+    {
+     "iterations": [
+      {
+       "wall": 0.5086,
+       "cpu": 0.6528
+      }
+     ],
+     "process_wall": 0.51,
+     "process_cpu": 0.65,
+     "rss_mb": 42.8203125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.4994,
+       "cpu": 0.6375
+      }
+     ],
+     "process_wall": 0.5,
+     "process_cpu": 0.64,
+     "rss_mb": 43.66796875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.5387,
+       "cpu": 0.7069
+      }
+     ],
+     "process_wall": 0.54,
+     "process_cpu": 0.71,
+     "rss_mb": 45.07421875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.5008,
+       "cpu": 0.6364
+      }
+     ],
+     "process_wall": 0.5,
+     "process_cpu": 0.64,
+     "rss_mb": 43.34375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.5321,
+       "cpu": 0.6987
+      }
+     ],
+     "process_wall": 0.53,
+     "process_cpu": 0.7000000000000001,
+     "rss_mb": 43.33984375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.5303,
+       "cpu": 0.6955
+      }
+     ],
+     "process_wall": 0.53,
+     "process_cpu": 0.6900000000000001,
+     "rss_mb": 45.3984375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.5019,
+       "cpu": 0.643
+      }
+     ],
+     "process_wall": 0.5,
+     "process_cpu": 0.64,
+     "rss_mb": 42.375
+    }
+   ],
+   "dota-2016|manta-91f7979": [
+    {
+     "iterations": [
+      {
+       "wall": 1.1867,
+       "cpu": 1.5941
+      }
+     ],
+     "process_wall": 1.19,
+     "process_cpu": 1.59,
+     "rss_mb": 40.19921875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.187,
+       "cpu": 1.5913
+      }
+     ],
+     "process_wall": 1.19,
+     "process_cpu": 1.58,
+     "rss_mb": 39.5859375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.1714,
+       "cpu": 1.5828
+      }
+     ],
+     "process_wall": 1.17,
+     "process_cpu": 1.58,
+     "rss_mb": 40.00390625
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.1086,
+       "cpu": 1.4568
+      }
+     ],
+     "process_wall": 1.11,
+     "process_cpu": 1.46,
+     "rss_mb": 40.3046875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.1029,
+       "cpu": 1.4427
+      }
+     ],
+     "process_wall": 1.1,
+     "process_cpu": 1.4400000000000002,
+     "rss_mb": 38.75
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.1735,
+       "cpu": 1.5632
+      }
+     ],
+     "process_wall": 1.17,
+     "process_cpu": 1.57,
+     "rss_mb": 38.8359375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.1065,
+       "cpu": 1.4453
+      }
+     ],
+     "process_wall": 1.11,
+     "process_cpu": 1.4500000000000002,
+     "rss_mb": 38.30859375
+    }
+   ],
+   "dota-2025|clarity": [
+    {
+     "iterations": [
+      {
+       "wall": 1.4839,
+       "cpu": 3.34
+      }
+     ],
+     "process_wall": 1.6,
+     "process_cpu": 3.59,
+     "rss_mb": 987.8515625
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.4745,
+       "cpu": 3.35
+      }
+     ],
+     "process_wall": 1.58,
+     "process_cpu": 3.59,
+     "rss_mb": 996.48046875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.4595,
+       "cpu": 3.37
+      }
+     ],
+     "process_wall": 1.57,
+     "process_cpu": 3.62,
+     "rss_mb": 994.1015625
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.4821,
+       "cpu": 3.38
+      }
+     ],
+     "process_wall": 1.59,
+     "process_cpu": 3.66,
+     "rss_mb": 993.54296875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.4698,
+       "cpu": 3.35
+      }
+     ],
+     "process_wall": 1.58,
+     "process_cpu": 3.61,
+     "rss_mb": 996.02734375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.4741,
+       "cpu": 3.34
+      }
+     ],
+     "process_wall": 1.58,
+     "process_cpu": 3.6,
+     "rss_mb": 999.12890625
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.4683,
+       "cpu": 3.31
+      }
+     ],
+     "process_wall": 1.58,
+     "process_cpu": 3.59,
+     "rss_mb": 995.265625
+    }
+   ],
+   "dota-2025|manta-v1.5.0": [
+    {
+     "iterations": [
+      {
+       "wall": 1.7825,
+       "cpu": 2.3167
+      }
+     ],
+     "process_wall": 1.78,
+     "process_cpu": 2.3099999999999996,
+     "rss_mb": 77.9921875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.8517,
+       "cpu": 2.4756
+      }
+     ],
+     "process_wall": 1.85,
+     "process_cpu": 2.48,
+     "rss_mb": 80.23828125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.7935,
+       "cpu": 2.329
+      }
+     ],
+     "process_wall": 1.79,
+     "process_cpu": 2.3299999999999996,
+     "rss_mb": 78.04296875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.8441,
+       "cpu": 2.4887
+      }
+     ],
+     "process_wall": 1.84,
+     "process_cpu": 2.4899999999999998,
+     "rss_mb": 82.34765625
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.7897,
+       "cpu": 2.3198
+      }
+     ],
+     "process_wall": 1.79,
+     "process_cpu": 2.32,
+     "rss_mb": 82.6328125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.8514,
+       "cpu": 2.4989
+      }
+     ],
+     "process_wall": 1.85,
+     "process_cpu": 2.5,
+     "rss_mb": 83.3046875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.8549,
+       "cpu": 2.519
+      }
+     ],
+     "process_wall": 1.86,
+     "process_cpu": 2.51,
+     "rss_mb": 77.97265625
+    }
+   ],
+   "dota-2025|manta-91f7979": [
+    {
+     "iterations": [
+      {
+       "wall": 3.9159,
+       "cpu": 5.728
+      }
+     ],
+     "process_wall": 3.92,
+     "process_cpu": 5.72,
+     "rss_mb": 68.17578125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 3.9032,
+       "cpu": 5.6074
+      }
+     ],
+     "process_wall": 3.9,
+     "process_cpu": 5.6,
+     "rss_mb": 69.8046875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 3.9338,
+       "cpu": 5.7068
+      }
+     ],
+     "process_wall": 3.93,
+     "process_cpu": 5.71,
+     "rss_mb": 72.3203125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 3.8881,
+       "cpu": 5.5871
+      }
+     ],
+     "process_wall": 3.89,
+     "process_cpu": 5.58,
+     "rss_mb": 68.8515625
+    },
+    {
+     "iterations": [
+      {
+       "wall": 3.9024,
+       "cpu": 5.6476
+      }
+     ],
+     "process_wall": 3.9,
+     "process_cpu": 5.65,
+     "rss_mb": 66.765625
+    },
+    {
+     "iterations": [
+      {
+       "wall": 3.9074,
+       "cpu": 5.6926
+      }
+     ],
+     "process_wall": 3.91,
+     "process_cpu": 5.6899999999999995,
+     "rss_mb": 69.3125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 3.8399,
+       "cpu": 5.5142
+      }
+     ],
+     "process_wall": 3.84,
+     "process_cpu": 5.51,
+     "rss_mb": 69.78125
+    }
+   ]
+  },
+  "loop": {
+   "cs2-anubis|clarity": {
+    "iterations": [
+     {
+      "wall": 1.4254,
+      "cpu": 2.64
+     },
+     {
+      "wall": 1.1882,
+      "cpu": 1.5
+     },
+     {
+      "wall": 1.1793,
+      "cpu": 1.39
+     },
+     {
+      "wall": 1.1688,
+      "cpu": 1.41
+     },
+     {
+      "wall": 1.1692,
+      "cpu": 1.38
+     },
+     {
+      "wall": 1.1703,
+      "cpu": 1.29
+     },
+     {
+      "wall": 1.17,
+      "cpu": 1.31
+     },
+     {
+      "wall": 1.1793,
+      "cpu": 1.26
+     },
+     {
+      "wall": 1.1736,
+      "cpu": 1.27
+     },
+     {
+      "wall": 1.1708,
+      "cpu": 1.24
+     }
+    ],
+    "process_wall": 12.11,
+    "process_cpu": 14.959999999999999,
+    "rss_mb": 1184.0625
+   },
+   "cs2-anubis|dp2-0.42.0-mt": {
+    "iterations": [
+     {
+      "wall": 0.4523,
+      "cpu": 4.4937
+     },
+     {
+      "wall": 0.255,
+      "cpu": 2.449
+     },
+     {
+      "wall": 0.2588,
+      "cpu": 2.3921
+     },
+     {
+      "wall": 0.2652,
+      "cpu": 2.3994
+     },
+     {
+      "wall": 0.2513,
+      "cpu": 2.4256
+     },
+     {
+      "wall": 0.2456,
+      "cpu": 2.4152
+     },
+     {
+      "wall": 0.2484,
+      "cpu": 2.4167
+     },
+     {
+      "wall": 0.2542,
+      "cpu": 2.3829
+     },
+     {
+      "wall": 0.245,
+      "cpu": 2.4109
+     },
+     {
+      "wall": 0.2491,
+      "cpu": 2.3871
+     }
+    ],
+    "process_wall": 2.78,
+    "process_cpu": 26.229999999999997,
+    "rss_mb": 1794.68359375
+   },
+   "cs2-anubis|dp2-0.42.0-st": {
+    "iterations": [
+     {
+      "wall": 1.661,
+      "cpu": 3.5897
+     },
+     {
+      "wall": 1.462,
+      "cpu": 1.4656
+     },
+     {
+      "wall": 1.4479,
+      "cpu": 1.4527
+     },
+     {
+      "wall": 1.4425,
+      "cpu": 1.4472
+     },
+     {
+      "wall": 1.4449,
+      "cpu": 1.4492
+     },
+     {
+      "wall": 1.4404,
+      "cpu": 1.4465
+     },
+     {
+      "wall": 1.4516,
+      "cpu": 1.4569
+     },
+     {
+      "wall": 1.4359,
+      "cpu": 1.4418
+     },
+     {
+      "wall": 1.4412,
+      "cpu": 1.4455
+     },
+     {
+      "wall": 1.4425,
+      "cpu": 1.4464
+     }
+    ],
+    "process_wall": 14.72,
+    "process_cpu": 16.69,
+    "rss_mb": 1323.2265625
+   },
+   "cs2-anubis|dp2-0.41.1-mt": {
+    "iterations": [
+     {
+      "wall": 0.5207,
+      "cpu": 4.7953
+     },
+     {
+      "wall": 0.3127,
+      "cpu": 2.6053
+     },
+     {
+      "wall": 0.2985,
+      "cpu": 2.6299
+     },
+     {
+      "wall": 0.3039,
+      "cpu": 2.64
+     },
+     {
+      "wall": 0.3119,
+      "cpu": 2.6315
+     },
+     {
+      "wall": 0.301,
+      "cpu": 2.6173
+     },
+     {
+      "wall": 0.3024,
+      "cpu": 2.6474
+     },
+     {
+      "wall": 0.3064,
+      "cpu": 2.5936
+     },
+     {
+      "wall": 0.3013,
+      "cpu": 2.5196
+     },
+     {
+      "wall": 0.3073,
+      "cpu": 2.6582
+     }
+    ],
+    "process_wall": 3.33,
+    "process_cpu": 28.400000000000002,
+    "rss_mb": 1672.09765625
+   },
+   "cs2-anubis|dp2-0.41.1-st": {
+    "iterations": [
+     {
+      "wall": 1.815,
+      "cpu": 3.7484
+     },
+     {
+      "wall": 1.5851,
+      "cpu": 1.5896
+     },
+     {
+      "wall": 1.5669,
+      "cpu": 1.5707
+     },
+     {
+      "wall": 1.5623,
+      "cpu": 1.5655
+     },
+     {
+      "wall": 1.5705,
+      "cpu": 1.5744
+     },
+     {
+      "wall": 1.5687,
+      "cpu": 1.5739
+     },
+     {
+      "wall": 1.57,
+      "cpu": 1.5732
+     },
+     {
+      "wall": 1.5662,
+      "cpu": 1.5699
+     },
+     {
+      "wall": 1.5678,
+      "cpu": 1.5721
+     },
+     {
+      "wall": 1.5696,
+      "cpu": 1.5733
+     }
+    ],
+    "process_wall": 16.0,
+    "process_cpu": 17.97,
+    "rss_mb": 1482.60546875
+   },
+   "cs2-anubis|dic-v5.2.0-default": {
+    "iterations": [
+     {
+      "wall": 2.2296,
+      "cpu": 6.047
+     },
+     {
+      "wall": 2.2104,
+      "cpu": 6.0478
+     },
+     {
+      "wall": 2.2162,
+      "cpu": 6.0839
+     },
+     {
+      "wall": 2.2534,
+      "cpu": 6.3552
+     },
+     {
+      "wall": 2.2017,
+      "cpu": 6.116
+     },
+     {
+      "wall": 2.2061,
+      "cpu": 6.0805
+     },
+     {
+      "wall": 2.2451,
+      "cpu": 6.2644
+     },
+     {
+      "wall": 2.22,
+      "cpu": 6.1129
+     },
+     {
+      "wall": 2.247,
+      "cpu": 6.2135
+     },
+     {
+      "wall": 2.2084,
+      "cpu": 6.0968
+     }
+    ],
+    "process_wall": 22.24,
+    "process_cpu": 61.42,
+    "rss_mb": 60.78125
+   },
+   "cs2-anubis|dic-v5.2.0-st": {
+    "iterations": [
+     {
+      "wall": 4.2664,
+      "cpu": 6.3746
+     },
+     {
+      "wall": 4.2882,
+      "cpu": 6.4029
+     },
+     {
+      "wall": 4.2926,
+      "cpu": 6.3954
+     },
+     {
+      "wall": 4.3312,
+      "cpu": 6.5034
+     },
+     {
+      "wall": 4.2781,
+      "cpu": 6.4188
+     },
+     {
+      "wall": 4.232,
+      "cpu": 6.3023
+     },
+     {
+      "wall": 4.3107,
+      "cpu": 6.4441
+     },
+     {
+      "wall": 4.3049,
+      "cpu": 6.4149
+     },
+     {
+      "wall": 4.2457,
+      "cpu": 6.2933
+     },
+     {
+      "wall": 4.3154,
+      "cpu": 6.5012
+     }
+    ],
+    "process_wall": 42.86,
+    "process_cpu": 64.03999999999999,
+    "rss_mb": 55.6328125
+   },
+   "cs2-anubis|dic-v5.1.4-default": {
+    "iterations": [
+     {
+      "wall": 2.5905,
+      "cpu": 7.5898
+     },
+     {
+      "wall": 2.5032,
+      "cpu": 7.028
+     },
+     {
+      "wall": 2.5177,
+      "cpu": 7.4516
+     },
+     {
+      "wall": 2.5124,
+      "cpu": 7.3638
+     },
+     {
+      "wall": 2.5013,
+      "cpu": 7.1649
+     },
+     {
+      "wall": 2.5033,
+      "cpu": 7.1578
+     },
+     {
+      "wall": 2.5339,
+      "cpu": 7.5676
+     },
+     {
+      "wall": 2.5417,
+      "cpu": 7.48
+     },
+     {
+      "wall": 2.5216,
+      "cpu": 7.4854
+     },
+     {
+      "wall": 2.4981,
+      "cpu": 7.3549
+     }
+    ],
+    "process_wall": 25.22,
+    "process_cpu": 73.64,
+    "rss_mb": 113.43359375
+   },
+   "cs2-anubis|dic-v5.1.4-st": {
+    "iterations": [
+     {
+      "wall": 5.4612,
+      "cpu": 8.0464
+     },
+     {
+      "wall": 5.4277,
+      "cpu": 8.0031
+     },
+     {
+      "wall": 5.3701,
+      "cpu": 7.8988
+     },
+     {
+      "wall": 5.3178,
+      "cpu": 7.8099
+     },
+     {
+      "wall": 5.3977,
+      "cpu": 7.9329
+     },
+     {
+      "wall": 5.3841,
+      "cpu": 8.0386
+     },
+     {
+      "wall": 5.3446,
+      "cpu": 7.8921
+     },
+     {
+      "wall": 5.4134,
+      "cpu": 8.0478
+     },
+     {
+      "wall": 5.3118,
+      "cpu": 7.788
+     },
+     {
+      "wall": 5.4371,
+      "cpu": 7.9732
+     }
+    ],
+    "process_wall": 53.86,
+    "process_cpu": 79.42999999999999,
+    "rss_mb": 45.4609375
+   },
+   "dota-2016|clarity": {
+    "iterations": [
+     {
+      "wall": 0.5801,
+      "cpu": 1.73
+     },
+     {
+      "wall": 0.356,
+      "cpu": 0.66
+     },
+     {
+      "wall": 0.3497,
+      "cpu": 0.61
+     },
+     {
+      "wall": 0.3399,
+      "cpu": 0.55
+     },
+     {
+      "wall": 0.3396,
+      "cpu": 0.44
+     },
+     {
+      "wall": 0.3386,
+      "cpu": 0.44
+     },
+     {
+      "wall": 0.3347,
+      "cpu": 0.4
+     },
+     {
+      "wall": 0.3415,
+      "cpu": 0.45
+     },
+     {
+      "wall": 0.3416,
+      "cpu": 0.45
+     },
+     {
+      "wall": 0.3356,
+      "cpu": 0.4
+     }
+    ],
+    "process_wall": 3.78,
+    "process_cpu": 6.43,
+    "rss_mb": 847.6640625
+   },
+   "dota-2016|manta-v1.5.0": {
+    "iterations": [
+     {
+      "wall": 0.5325,
+      "cpu": 0.7049
+     },
+     {
+      "wall": 0.5369,
+      "cpu": 0.7093
+     },
+     {
+      "wall": 0.5396,
+      "cpu": 0.7141
+     },
+     {
+      "wall": 0.5314,
+      "cpu": 0.703
+     },
+     {
+      "wall": 0.5308,
+      "cpu": 0.7066
+     },
+     {
+      "wall": 0.5334,
+      "cpu": 0.7067
+     },
+     {
+      "wall": 0.5333,
+      "cpu": 0.6876
+     },
+     {
+      "wall": 0.5331,
+      "cpu": 0.6983
+     },
+     {
+      "wall": 0.524,
+      "cpu": 0.6856
+     },
+     {
+      "wall": 0.5085,
+      "cpu": 0.6408
+     }
+    ],
+    "process_wall": 5.3,
+    "process_cpu": 6.949999999999999,
+    "rss_mb": 42.953125
+   },
+   "dota-2016|manta-91f7979": {
+    "iterations": [
+     {
+      "wall": 1.0947,
+      "cpu": 1.445
+     },
+     {
+      "wall": 1.1487,
+      "cpu": 1.5452
+     },
+     {
+      "wall": 1.1595,
+      "cpu": 1.563
+     },
+     {
+      "wall": 1.1782,
+      "cpu": 1.5789
+     },
+     {
+      "wall": 1.1482,
+      "cpu": 1.5339
+     },
+     {
+      "wall": 1.1605,
+      "cpu": 1.5495
+     },
+     {
+      "wall": 1.1791,
+      "cpu": 1.5837
+     },
+     {
+      "wall": 1.1638,
+      "cpu": 1.5594
+     },
+     {
+      "wall": 1.1451,
+      "cpu": 1.5273
+     },
+     {
+      "wall": 1.1644,
+      "cpu": 1.5578
+     }
+    ],
+    "process_wall": 11.54,
+    "process_cpu": 15.440000000000001,
+    "rss_mb": 41.45703125
+   },
+   "dota-2025|clarity": {
+    "iterations": [
+     {
+      "wall": 1.4694,
+      "cpu": 3.37
+     },
+     {
+      "wall": 1.2243,
+      "cpu": 2.11
+     },
+     {
+      "wall": 1.2212,
+      "cpu": 1.96
+     },
+     {
+      "wall": 1.2106,
+      "cpu": 2.01
+     },
+     {
+      "wall": 1.213,
+      "cpu": 1.86
+     },
+     {
+      "wall": 1.2109,
+      "cpu": 1.87
+     },
+     {
+      "wall": 1.2144,
+      "cpu": 1.71
+     },
+     {
+      "wall": 1.2395,
+      "cpu": 1.78
+     },
+     {
+      "wall": 1.2308,
+      "cpu": 1.6
+     },
+     {
+      "wall": 1.2172,
+      "cpu": 1.63
+     }
+    ],
+    "process_wall": 12.57,
+    "process_cpu": 20.14,
+    "rss_mb": 1361.0078125
+   },
+   "dota-2025|manta-v1.5.0": {
+    "iterations": [
+     {
+      "wall": 1.8432,
+      "cpu": 2.4897
+     },
+     {
+      "wall": 1.8607,
+      "cpu": 2.51
+     },
+     {
+      "wall": 1.849,
+      "cpu": 2.455
+     },
+     {
+      "wall": 1.8477,
+      "cpu": 2.503
+     },
+     {
+      "wall": 1.8471,
+      "cpu": 2.5055
+     },
+     {
+      "wall": 1.866,
+      "cpu": 2.5605
+     },
+     {
+      "wall": 1.8608,
+      "cpu": 2.5433
+     },
+     {
+      "wall": 1.8518,
+      "cpu": 2.522
+     },
+     {
+      "wall": 1.8597,
+      "cpu": 2.5466
+     },
+     {
+      "wall": 1.8617,
+      "cpu": 2.4921
+     }
+    ],
+    "process_wall": 18.55,
+    "process_cpu": 25.13,
+    "rss_mb": 84.62890625
+   },
+   "dota-2025|manta-91f7979": {
+    "iterations": [
+     {
+      "wall": 3.8648,
+      "cpu": 5.5883
+     },
+     {
+      "wall": 3.9286,
+      "cpu": 5.7166
+     },
+     {
+      "wall": 3.9354,
+      "cpu": 5.7651
+     },
+     {
+      "wall": 3.9947,
+      "cpu": 5.866
+     },
+     {
+      "wall": 3.9587,
+      "cpu": 5.8353
+     },
+     {
+      "wall": 3.9426,
+      "cpu": 5.7947
+     },
+     {
+      "wall": 3.9706,
+      "cpu": 5.7971
+     },
+     {
+      "wall": 3.9581,
+      "cpu": 5.828
+     },
+     {
+      "wall": 3.9462,
+      "cpu": 5.7511
+     },
+     {
+      "wall": 3.9351,
+      "cpu": 5.7021
+     }
+    ],
+    "process_wall": 39.44,
+    "process_cpu": 57.64,
+    "rss_mb": 70.76953125
+   }
+  }
+ }
+}

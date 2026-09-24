@@ -20,6 +20,7 @@ v3.1.3/    pinned to released 3.1.3 from Maven Central; impl selection via shado
 v4.0.1/    pinned to released 4.0.1 from Maven Central; impl selection via shadow
 v5.0.0/    pinned to 5.0.0-SNAPSHOT from mavenLocal (= the in-development candidate)
 replays/   on-disk replay corpus (gitignored; manifest pinned by sha256)
+parsers/   cross-parser comparison vs demoparser2/demoinfocs/manta (see parsers/README.md)
 results/   tracked baseline runs
 ```
 

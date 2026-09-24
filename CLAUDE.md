@@ -41,6 +41,7 @@ harness/     shared bench infrastructure (no clarity imports)
 v3.1.3/      pinned to released 3.1.3 from Maven Central
 v4.0.1/      pinned to released 4.0.1 from Maven Central
 v5.0.0/      pinned to 5.0.0-SNAPSHOT from mavenLocal
+parsers/     cross-parser comparison (clarity vs demoparser2/demoinfocs/manta), see parsers/README.md
 results/     tracked baseline runs (committed)
 ```
 
