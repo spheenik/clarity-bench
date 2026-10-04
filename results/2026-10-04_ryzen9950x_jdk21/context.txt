@@ -1,0 +1,24 @@
+hardware tag:    ryzen9950x
+CPU model:       AMD Ryzen 9 9950X 16-Core Processor
+cores:           32 (logical) / 16 (physical)
+RAM bytes:       67031097344
+OS:              Linux 7.2.7-arch1-1
+JVM:             OpenJDK 64-Bit Server VM 21.0.12.1+1
+JVM args:        [-Dfile.encoding=UTF-8, -Duser.country=US, -Duser.language=en, -Duser.variant]
+bench repo SHA:  616ba40d62c5dc0919e6f70e4f67b8dbb53f627b
+
+replays used:
+  7334934eacd3dea8ffb8c2609d09de7407cd4838964e6e6061319e1298e87f36  195877179  DOTA_S2  dota/s2/340/8168882574_1198277651.dem
+  6cdbd433acb897b44e6144db056bd90f4834b7e7617443637e261b84441fc513  127629480  DOTA_S1  dota/s1/normal/271145478.dem
+  4de2f5927bff83e473a3278228a991db96f641b504d91c498fcb5d0039e9eee1  39872629  DOTA_S2  dota/s2/normal/1560289528.dem
+  382719ae11677f184a0aee1139a93a5302740c4ad9c76cb899a87882df4c1827  281960770  DEADLOCK  deadlock/newer/19206063.dem
+  459688bbe451f599d9231d00ea31de5fa18e7b5980d3b72fc570b1761e8a2c07  401158550  CS2  csgo/s2/issue-345/liquid-vs-betboom-m1-mirage.dem
+
+=== adapters benched ===
+
+--- 4.0.3 ---
+clarity JAR:     /home/spheenik/.gradle/caches/modules-2/files-2.1/com.skadistats/clarity/4.0.3/f564273a1aa54b59106d2cec05036d97a8436aa1/clarity-4.0.3.jar  sha256=21ebfbb74c8876ef96a408a89876f653e53c56a28f423f49dedefc66bf55b897  mtime=2026-10-04T13:31:35.834685396Z
+impl selection:  S2 entity-state impls selected via shadow EntityStateFactory shim (no public runtime API in clarity 4.0.3).
+
+--- 5.0.0-SNAPSHOT ---
+clarity JAR:     /home/spheenik/.m2/repository/com/skadistats/clarity/5.0.0-SNAPSHOT/clarity-5.0.0-SNAPSHOT.jar  sha256=f6988fa6feb1dc14130ce20c2eae5d09889220713d24f9e07cf3ee2660eaec14  mtime=2026-10-04T09:21:13.952343444Z

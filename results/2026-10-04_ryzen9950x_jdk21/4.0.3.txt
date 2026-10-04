@@ -1,0 +1,48 @@
+clarity 4.0.3
+generated: 2026-10-04T13:34:21.643860703Z
+
+################ ParseBench ################
+
+=== dota/s1/normal/271145478.dem ===
+  impl                   median          min          max          p95   score ± err (ms)
+  OBJECT_ARRAY          416.7 ms      412.7 ms      420.8 ms      420.8 ms      416.7 ±  4.3
+
+  impl                   alloc/op     alloc rate        GCs      GC time
+  OBJECT_ARRAY            4.40 GB     10802 MB/s         38        49 ms
+
+=== dota/s2/340/8168882574_1198277651.dem ===
+  impl                   median          min          max          p95   score ± err (ms)
+  NESTED_ARRAY         1827.9 ms     1819.3 ms     1894.9 ms     1894.9 ms     1836.3 ± 34.2
+  TREE_MAP             2082.6 ms     2040.7 ms     2158.5 ms     2158.5 ms     2090.0 ± 55.2
+
+  impl                   alloc/op     alloc rate        GCs      GC time
+  NESTED_ARRAY            9.47 GB      5281 MB/s         69       179 ms
+  TREE_MAP                9.61 GB      4708 MB/s         54       537 ms
+
+=== dota/s2/normal/1560289528.dem ===
+  impl                   median          min          max          p95   score ± err (ms)
+  NESTED_ARRAY          469.6 ms      468.0 ms      473.8 ms      473.8 ms      470.4 ±  3.5
+  TREE_MAP              502.3 ms      496.9 ms      556.6 ms      556.6 ms      508.5 ± 26.3
+
+  impl                   alloc/op     alloc rate        GCs      GC time
+  NESTED_ARRAY            3.63 GB      7907 MB/s         34        46 ms
+  TREE_MAP                3.67 GB      7395 MB/s         25        81 ms
+
+=== deadlock/newer/19206063.dem ===
+  impl                   median          min          max          p95   score ± err (ms)
+  NESTED_ARRAY         1355.1 ms     1345.5 ms     1365.3 ms     1365.3 ms     1355.6 ±  8.9
+  TREE_MAP             1488.2 ms     1481.3 ms     1517.5 ms     1517.5 ms     1491.8 ± 18.5
+
+  impl                   alloc/op     alloc rate        GCs      GC time
+  NESTED_ARRAY            5.60 GB      4233 MB/s         71        80 ms
+  TREE_MAP                5.65 GB      3880 MB/s         53       109 ms
+
+=== csgo/s2/issue-345/liquid-vs-betboom-m1-mirage.dem ===
+  impl                   median          min          max          p95   score ± err (ms)
+  NESTED_ARRAY         1472.4 ms     1462.5 ms     1488.8 ms     1488.8 ms     1474.2 ± 11.4
+  TREE_MAP             1585.8 ms     1575.9 ms     1627.9 ms     1627.9 ms     1589.1 ± 22.3
+
+  impl                   alloc/op     alloc rate        GCs      GC time
+  NESTED_ARRAY           11.81 GB      8201 MB/s        122       118 ms
+  TREE_MAP               11.83 GB      7622 MB/s         82       153 ms
+

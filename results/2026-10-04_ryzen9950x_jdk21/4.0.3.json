@@ -1,0 +1,18 @@
+{
+  "adapter": "4.0.3",
+  "generated": "2026-10-04T13:34:21.647869600Z",
+  "cells": [
+    {"benchmark": "ParseBench", "replay": "dota/s1/normal/271145478.dem", "impl": "OBJECT_ARRAY", "unit": "ms", "score": 416.7311, "error": 4.3242, "min": 412.6920, "max": 420.8280, "median": 416.7341, "p95": 420.8280, "n": 10},
+    {"benchmark": "ParseBench", "replay": "dota/s2/340/8168882574_1198277651.dem", "impl": "NESTED_ARRAY", "unit": "ms", "score": 1836.2611, "error": 34.2348, "min": 1819.3378, "max": 1894.9428, "median": 1827.9417, "p95": 1894.9428, "n": 10},
+    {"benchmark": "ParseBench", "replay": "dota/s2/normal/1560289528.dem", "impl": "NESTED_ARRAY", "unit": "ms", "score": 470.4003, "error": 3.5261, "min": 467.9646, "max": 473.7581, "median": 469.5806, "p95": 473.7581, "n": 10},
+    {"benchmark": "ParseBench", "replay": "deadlock/newer/19206063.dem", "impl": "NESTED_ARRAY", "unit": "ms", "score": 1355.6488, "error": 8.9261, "min": 1345.4880, "max": 1365.2645, "median": 1355.1000, "p95": 1365.2645, "n": 10},
+    {"benchmark": "ParseBench", "replay": "csgo/s2/issue-345/liquid-vs-betboom-m1-mirage.dem", "impl": "NESTED_ARRAY", "unit": "ms", "score": 1474.2020, "error": 11.4487, "min": 1462.4682, "max": 1488.8124, "median": 1472.3881, "p95": 1488.8124, "n": 10},
+    {"benchmark": "ParseBench", "replay": "dota/s2/340/8168882574_1198277651.dem", "impl": "TREE_MAP", "unit": "ms", "score": 2089.9558, "error": 55.1779, "min": 2040.7432, "max": 2158.4998, "median": 2082.5517, "p95": 2158.4998, "n": 10},
+    {"benchmark": "ParseBench", "replay": "dota/s2/normal/1560289528.dem", "impl": "TREE_MAP", "unit": "ms", "score": 508.5400, "error": 26.3254, "min": 496.9112, "max": 556.6203, "median": 502.2520, "p95": 556.6203, "n": 10},
+    {"benchmark": "ParseBench", "replay": "deadlock/newer/19206063.dem", "impl": "TREE_MAP", "unit": "ms", "score": 1491.8022, "error": 18.4762, "min": 1481.2825, "max": 1517.4986, "median": 1488.2327, "p95": 1517.4986, "n": 10},
+    {"benchmark": "ParseBench", "replay": "csgo/s2/issue-345/liquid-vs-betboom-m1-mirage.dem", "impl": "TREE_MAP", "unit": "ms", "score": 1589.1024, "error": 22.3196, "min": 1575.8539, "max": 1627.8670, "median": 1585.8187, "p95": 1627.8670, "n": 10}
+  ],
+  "failures": [
+
+  ]
+}

@@ -10,6 +10,7 @@ Each version subproject runs in its own JVM with its own pinned classpath.
 # released versions
 ./gradlew :v3.1.3:run --args="--replays-root /home/spheenik/projects/replays"
 ./gradlew :v4.0.1:run --args="--replays-root /home/spheenik/projects/replays"
+./gradlew :v4.0.3:run --args="--replays-root /home/spheenik/projects/replays"
 
 # snapshot candidate — publish to mavenLocal first
 cd ../clarity && ./gradlew publishToMavenLocal && cd -
@@ -40,6 +41,7 @@ filter (e.g. `--impl S2_FLAT` on v3.1.3) silently skips with a summary line.
 harness/     shared bench infrastructure (no clarity imports)
 v3.1.3/      pinned to released 3.1.3 from Maven Central
 v4.0.1/      pinned to released 4.0.1 from Maven Central
+v4.0.3/      pinned to released 4.0.3 from Maven Central
 v5.0.0/      pinned to 5.0.0-SNAPSHOT from mavenLocal
 parsers/     cross-parser comparison (clarity vs demoparser2/demoinfocs/manta), see parsers/README.md
 results/     tracked baseline runs (committed)
