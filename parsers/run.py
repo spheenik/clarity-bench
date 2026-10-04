@@ -29,7 +29,7 @@ BUILD = os.path.join(HERE, "build")
 
 TARGETS = [
     # id, parser, version, mode, engines
-    ("clarity", "clarity", "5.0.0-SNAPSHOT", "ST", {"CS2", "DOTA_S2"}),
+    ("clarity", "clarity", "5.0.0", "ST", {"CS2", "DOTA_S2"}),
     ("dp2-0.42.0-mt", "demoparser2", "0.42.0", "MT", {"CS2"}),
     ("dp2-0.42.0-st", "demoparser2", "0.42.0", "ST", {"CS2"}),
     ("dp2-0.41.1-mt", "demoparser2", "0.41.1", "MT", {"CS2"}),
@@ -195,14 +195,14 @@ def main():
     ap.add_argument("--loop-iterations", type=int, default=10)
     ap.add_argument("--loop-warmup", type=int, default=3)
     ap.add_argument("--only", action="append", default=[], help="restrict to target ids containing this; repeatable")
-    ap.add_argument("--clarity-label", default="5.0.0-SNAPSHOT (mavenLocal)")
+    ap.add_argument("--clarity-label", default="5.0.0")
     ap.add_argument("--record", action="store_true", help="write into results/parsers/ instead of parsers/build/")
     args = ap.parse_args()
 
     targets = [t for t in TARGETS if not args.only or any(o in t[0] for o in args.only)]
     replays = load_replays(args.replays_root)
     built, versions = build(targets)
-    versions[("clarity", "5.0.0-SNAPSHOT")] = args.clarity_label
+    versions[("clarity", "5.0.0")] = args.clarity_label
 
     cells = [(r, t) for r in replays for t in targets if r["engine"] in t[4]]
     results = {"process": {}, "loop": {}}

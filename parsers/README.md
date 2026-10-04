@@ -14,12 +14,7 @@ across four languages. The write-up of the results lives in clarity's
 Requirements: JDK 21, Go, Python 3 with `venv`, `/usr/bin/time`.
 
 ```bash
-# clarity side comes from mavenLocal, like :v5.0.0
-cd ../clarity-protobuf && ./gradlew publishToMavenLocal && cd -
-cd ../clarity && ./gradlew publishToMavenLocal && cd -
-
-python3 parsers/run.py --replays-root /home/spheenik/projects/replays \
-  --clarity-label "next@$(git -C ../clarity rev-parse --short HEAD)"
+python3 parsers/run.py --replays-root /home/spheenik/projects/replays
 ```
 
 Add `--record` to write the run into `results/parsers/<date>_<host>/`

@@ -19,7 +19,7 @@ harness/   shared bench code (no clarity imports — verified at compile time)
 v3.1.3/    pinned to released 3.1.3 from Maven Central; impl selection via shadow
 v4.0.1/    pinned to released 4.0.1 from Maven Central; impl selection via shadow
 v4.0.3/    pinned to released 4.0.3 from Maven Central; impl selection via shadow
-v5.0.0/    pinned to 5.0.0-SNAPSHOT from mavenLocal (= the in-development candidate)
+v5.0.0/    pinned to released 5.0.0 from Maven Central
 replays/   on-disk replay corpus (gitignored; manifest pinned by sha256)
 parsers/   cross-parser comparison vs demoparser2/demoinfocs/manta (see parsers/README.md)
 results/   tracked baseline runs
@@ -62,9 +62,6 @@ Each `:vX.Y.Z:run` is a fresh JVM with that version's classpath.
 ./gradlew :v3.1.3:run --args="--replays-root /home/spheenik/projects/replays"
 ./gradlew :v4.0.1:run --args="--replays-root /home/spheenik/projects/replays"
 ./gradlew :v4.0.3:run --args="--replays-root /home/spheenik/projects/replays"
-
-# candidate (5.x SNAPSHOT) — publish first
-cd ../clarity && ./gradlew publishToMavenLocal && cd -
 ./gradlew :v5.0.0:run --args="--replays-root /home/spheenik/projects/replays"
 ```
 

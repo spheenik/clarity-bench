@@ -32,7 +32,7 @@ public class V500Adapter implements BenchAdapter {
 
     @Override
     public String version() {
-        return "5.0.0-SNAPSHOT";
+        return "5.0.0";
     }
 
     @Override
