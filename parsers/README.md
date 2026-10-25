@@ -14,7 +14,7 @@ across four languages. The write-up of the results lives in clarity's
 Requirements: JDK 21, Go, Python 3 with `venv`, `/usr/bin/time`.
 
 ```bash
-python3 parsers/run.py --replays-root /home/spheenik/projects/replays
+python3 parsers/run.py --replays-root $HOME/projects/clarity/replays
 ```
 
 Add `--record` to write the run into `results/parsers/<date>_<host>/`

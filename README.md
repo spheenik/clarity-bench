@@ -59,16 +59,16 @@ Each `:vX.Y.Z:run` is a fresh JVM with that version's classpath.
 
 ```bash
 # released versions
-./gradlew :v3.1.3:run --args="--replays-root /home/spheenik/projects/replays"
-./gradlew :v4.0.1:run --args="--replays-root /home/spheenik/projects/replays"
-./gradlew :v4.0.3:run --args="--replays-root /home/spheenik/projects/replays"
-./gradlew :v5.0.0:run --args="--replays-root /home/spheenik/projects/replays"
+./gradlew :v3.1.3:run --args="--replays-root $HOME/projects/clarity/replays"
+./gradlew :v4.0.1:run --args="--replays-root $HOME/projects/clarity/replays"
+./gradlew :v4.0.3:run --args="--replays-root $HOME/projects/clarity/replays"
+./gradlew :v5.0.0:run --args="--replays-root $HOME/projects/clarity/replays"
 ```
 
 Add `--record` to persist a run into `results/`:
 
 ```bash
-./gradlew :v5.0.0:run --args="--replays-root /home/spheenik/projects/replays --record"
+./gradlew :v5.0.0:run --args="--replays-root $HOME/projects/clarity/replays --record"
 ```
 
 ### Filters
@@ -78,7 +78,7 @@ Add `--record` to persist a run into `results/`:
 ```bash
 # one impl across all versions
 ./gradlew :v3.1.3:run :v4.0.1:run :v4.0.3:run :v5.0.0:run \
-  --args="--replays-root /home/spheenik/projects/replays --impl NESTED_ARRAY"
+  --args="--replays-root $HOME/projects/clarity/replays --impl NESTED_ARRAY"
 
 # only the propchange workload
 ./gradlew :v5.0.0:run --args="--replays-root … --workload propchange"
@@ -92,7 +92,7 @@ Add `--record` to persist a run into `results/`:
 Inspect engine classification across the corpus without running any benchmark:
 
 ```bash
-./gradlew :v5.0.0:run --args="--replays-root /home/spheenik/projects/replays --list-replays"
+./gradlew :v5.0.0:run --args="--replays-root $HOME/projects/clarity/replays --list-replays"
 ```
 
 Prints `<relative-path> → <detected-engine> → <manifest-tag>` per entry, with a marker on rows where the detector disagrees with the manifest. Useful when adding new replays — copy the detected value into the manifest.

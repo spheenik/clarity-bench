@@ -25,6 +25,6 @@ tasks.register<JavaExec>("reproPropchangeCS2") {
     classpath = sourceSets["main"].runtimeClasspath
     mainClass.set("spheenik.claritybench.v313.repro.PropchangeCS2")
     val demo = (project.findProperty("demo") as? String)
-            ?: "/home/spheenik/projects/replays/csgo/s2/issue-345/liquid-vs-betboom-m1-mirage.dem"
+            ?: System.getProperty("user.home") + "/projects/clarity/replays/csgo/s2/issue-345/liquid-vs-betboom-m1-mirage.dem"
     args(demo)
 }

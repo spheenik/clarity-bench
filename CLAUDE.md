@@ -8,10 +8,10 @@ Each version subproject runs in its own JVM with its own pinned classpath.
 
 ```bash
 # released versions
-./gradlew :v3.1.3:run --args="--replays-root /home/spheenik/projects/replays"
-./gradlew :v4.0.1:run --args="--replays-root /home/spheenik/projects/replays"
-./gradlew :v4.0.3:run --args="--replays-root /home/spheenik/projects/replays"
-./gradlew :v5.0.0:run --args="--replays-root /home/spheenik/projects/replays"
+./gradlew :v3.1.3:run --args="--replays-root $HOME/projects/clarity/replays"
+./gradlew :v4.0.1:run --args="--replays-root $HOME/projects/clarity/replays"
+./gradlew :v4.0.3:run --args="--replays-root $HOME/projects/clarity/replays"
+./gradlew :v5.0.0:run --args="--replays-root $HOME/projects/clarity/replays"
 ```
 
 Add `--record` to persist results into `results/`.
@@ -46,7 +46,7 @@ results/     tracked baseline runs (committed)
 
 ## Replay corpus
 
-- Replays live at `/home/spheenik/projects/replays` (gitignored here).
+- Replays live at `~/projects/clarity/replays` (gitignored here).
 - `replays/MANIFEST.sha256` is append-only: `<sha256> <size> <engine> <path>`.
 - `BenchMain` refuses to run a replay whose hash doesn't match the manifest.
 - **Adding a replay obligates backfill**: bench it against every version
