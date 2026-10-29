@@ -1,0 +1,136 @@
+round 1 par_8g n=1 load=1.51
+batch: threads 1 demos 12 wall 4.61 s proc 5.40 s demos/s 2.60 cpu/demo 0.450 s gc 37 ms in 8
+rss_kb 2632916
+round 1 par_4g n=1 load=1.95
+batch: threads 1 demos 12 wall 4.53 s proc 5.43 s demos/s 2.65 cpu/demo 0.452 s gc 39 ms in 12
+rss_kb 1794560
+round 1 par_2g n=1 load=2.20
+batch: threads 1 demos 12 wall 4.33 s proc 5.78 s demos/s 2.77 cpu/demo 0.482 s gc 65 ms in 22
+rss_kb 1243432
+round 1 g1_4g n=1 load=2.18
+batch: threads 1 demos 12 wall 4.70 s proc 6.67 s demos/s 2.55 cpu/demo 0.556 s gc 93 ms in 25
+rss_kb 1208068
+round 1 manta n=1 load=3.07
+batch: threads 1 demos 12 wall 3.96 s proc 4.45 s demos/s 3.03 cpu/demo 0.371 s gc 0 ms in 0
+rss_kb 65172
+round 1 par_8g n=4 load=2.98
+batch: threads 4 demos 48 wall 5.83 s proc 24.62 s demos/s 8.24 cpu/demo 0.513 s gc 147 ms in 23
+rss_kb 4311608
+round 1 par_4g n=4 load=3.29
+batch: threads 4 demos 48 wall 5.72 s proc 24.98 s demos/s 8.39 cpu/demo 0.520 s gc 206 ms in 44
+rss_kb 3468180
+round 1 par_2g n=4 load=3.67
+batch: threads 4 demos 48 wall 5.59 s proc 25.04 s demos/s 8.59 cpu/demo 0.522 s gc 275 ms in 90
+rss_kb 2538552
+round 1 g1_4g n=4 load=3.90
+batch: threads 4 demos 48 wall 6.04 s proc 27.84 s demos/s 7.95 cpu/demo 0.580 s gc 298 ms in 68
+rss_kb 2305488
+round 1 manta n=4 load=3.93
+batch: threads 4 demos 48 wall 4.82 s proc 20.34 s demos/s 9.95 cpu/demo 0.424 s gc 0 ms in 0
+rss_kb 150792
+round 1 par_8g n=8 load=3.85
+batch: threads 8 demos 96 wall 6.86 s proc 54.59 s demos/s 14.00 cpu/demo 0.569 s gc 409 ms in 47
+rss_kb 6889360
+round 1 par_4g n=8 load=3.90
+batch: threads 8 demos 96 wall 6.90 s proc 55.18 s demos/s 13.92 cpu/demo 0.575 s gc 536 ms in 92
+rss_kb 4926604
+round 1 par_2g n=8 load=3.93
+batch: threads 8 demos 96 wall 6.59 s proc 53.54 s demos/s 14.57 cpu/demo 0.558 s gc 570 ms in 186
+rss_kb 2911696
+round 1 g1_4g n=8 load=3.87
+batch: threads 8 demos 96 wall 7.14 s proc 60.96 s demos/s 13.45 cpu/demo 0.635 s gc 603 ms in 80
+rss_kb 4111796
+round 1 manta n=8 load=3.87
+batch: threads 8 demos 96 wall 5.41 s proc 44.48 s demos/s 17.74 cpu/demo 0.463 s gc 0 ms in 0
+rss_kb 253212
+round 2 par_4g n=1 load=3.89
+batch: threads 1 demos 12 wall 4.56 s proc 5.36 s demos/s 2.63 cpu/demo 0.447 s gc 38 ms in 13
+rss_kb 1730156
+round 2 par_2g n=1 load=3.73
+batch: threads 1 demos 12 wall 4.33 s proc 5.59 s demos/s 2.77 cpu/demo 0.466 s gc 69 ms in 22
+rss_kb 1232232
+round 2 g1_4g n=1 load=3.47
+batch: threads 1 demos 12 wall 4.67 s proc 6.62 s demos/s 2.57 cpu/demo 0.552 s gc 93 ms in 25
+rss_kb 1206700
+round 2 manta n=1 load=3.35
+batch: threads 1 demos 12 wall 4.01 s proc 4.47 s demos/s 2.99 cpu/demo 0.372 s gc 0 ms in 0
+rss_kb 63964
+round 2 par_8g n=1 load=3.24
+batch: threads 1 demos 12 wall 4.59 s proc 5.38 s demos/s 2.61 cpu/demo 0.448 s gc 34 ms in 8
+rss_kb 2626864
+round 2 par_4g n=4 load=3.05
+batch: threads 4 demos 48 wall 5.71 s proc 24.97 s demos/s 8.41 cpu/demo 0.520 s gc 209 ms in 45
+rss_kb 3497548
+round 2 par_2g n=4 load=3.21
+batch: threads 4 demos 48 wall 5.56 s proc 24.78 s demos/s 8.63 cpu/demo 0.516 s gc 285 ms in 91
+rss_kb 2558644
+round 2 g1_4g n=4 load=3.48
+batch: threads 4 demos 48 wall 5.84 s proc 27.10 s demos/s 8.22 cpu/demo 0.565 s gc 296 ms in 68
+rss_kb 2299200
+round 2 manta n=4 load=3.64
+batch: threads 4 demos 48 wall 4.84 s proc 20.47 s demos/s 9.91 cpu/demo 0.427 s gc 0 ms in 0
+rss_kb 148832
+round 2 par_8g n=4 load=3.75
+batch: threads 4 demos 48 wall 5.70 s proc 24.04 s demos/s 8.42 cpu/demo 0.501 s gc 151 ms in 23
+rss_kb 4295528
+round 2 par_4g n=8 load=3.94
+batch: threads 8 demos 96 wall 6.74 s proc 53.96 s demos/s 14.24 cpu/demo 0.562 s gc 520 ms in 92
+rss_kb 4909712
+round 2 par_2g n=8 load=3.95
+batch: threads 8 demos 96 wall 6.73 s proc 54.71 s demos/s 14.27 cpu/demo 0.570 s gc 584 ms in 185
+rss_kb 2909860
+round 2 g1_4g n=8 load=3.79
+batch: threads 8 demos 96 wall 7.01 s proc 60.45 s demos/s 13.69 cpu/demo 0.630 s gc 603 ms in 80
+rss_kb 4069236
+round 2 manta n=8 load=3.91
+batch: threads 8 demos 96 wall 5.39 s proc 44.39 s demos/s 17.81 cpu/demo 0.462 s gc 0 ms in 0
+rss_kb 248696
+round 2 par_8g n=8 load=3.88
+batch: threads 8 demos 96 wall 6.69 s proc 53.84 s demos/s 14.34 cpu/demo 0.561 s gc 452 ms in 48
+rss_kb 6900732
+round 3 par_2g n=1 load=3.99
+batch: threads 1 demos 12 wall 4.33 s proc 5.69 s demos/s 2.77 cpu/demo 0.474 s gc 59 ms in 22
+rss_kb 1241468
+round 3 g1_4g n=1 load=3.91
+batch: threads 1 demos 12 wall 4.73 s proc 6.68 s demos/s 2.54 cpu/demo 0.557 s gc 91 ms in 24
+rss_kb 1212392
+round 3 manta n=1 load=3.62
+batch: threads 1 demos 12 wall 3.98 s proc 4.46 s demos/s 3.02 cpu/demo 0.371 s gc 0 ms in 0
+rss_kb 65424
+round 3 par_8g n=1 load=3.73
+batch: threads 1 demos 12 wall 4.66 s proc 5.06 s demos/s 2.58 cpu/demo 0.422 s gc 13 ms in 5
+rss_kb 3117288
+round 3 par_4g n=1 load=3.46
+batch: threads 1 demos 12 wall 4.65 s proc 5.47 s demos/s 2.58 cpu/demo 0.456 s gc 40 ms in 14
+rss_kb 1729848
+round 3 par_2g n=4 load=3.35
+batch: threads 4 demos 48 wall 5.59 s proc 24.73 s demos/s 8.58 cpu/demo 0.515 s gc 285 ms in 91
+rss_kb 2564096
+round 3 g1_4g n=4 load=3.44
+batch: threads 4 demos 48 wall 5.96 s proc 27.53 s demos/s 8.05 cpu/demo 0.574 s gc 296 ms in 68
+rss_kb 2259496
+round 3 manta n=4 load=3.81
+batch: threads 4 demos 48 wall 4.81 s proc 20.32 s demos/s 9.97 cpu/demo 0.423 s gc 0 ms in 0
+rss_kb 157468
+round 3 par_8g n=4 load=3.85
+batch: threads 4 demos 48 wall 5.82 s proc 24.66 s demos/s 8.25 cpu/demo 0.514 s gc 148 ms in 23
+rss_kb 4314120
+round 3 par_4g n=4 load=3.94
+batch: threads 4 demos 48 wall 5.77 s proc 25.20 s demos/s 8.32 cpu/demo 0.525 s gc 209 ms in 45
+rss_kb 3508796
+round 3 par_2g n=8 load=3.88
+batch: threads 8 demos 96 wall 6.61 s proc 54.23 s demos/s 14.51 cpu/demo 0.565 s gc 562 ms in 185
+rss_kb 2942708
+round 3 g1_4g n=8 load=3.85
+batch: threads 8 demos 96 wall 7.15 s proc 60.81 s demos/s 13.43 cpu/demo 0.633 s gc 596 ms in 81
+rss_kb 4021384
+round 3 manta n=8 load=3.91
+batch: threads 8 demos 96 wall 5.35 s proc 44.00 s demos/s 17.96 cpu/demo 0.458 s gc 0 ms in 0
+rss_kb 255280
+round 3 par_8g n=8 load=3.87
+batch: threads 8 demos 96 wall 6.72 s proc 54.20 s demos/s 14.30 cpu/demo 0.565 s gc 442 ms in 46
+rss_kb 6925060
+round 3 par_4g n=8 load=3.76
+batch: threads 8 demos 96 wall 6.89 s proc 54.87 s demos/s 13.94 cpu/demo 0.572 s gc 518 ms in 92
+rss_kb 4947160
+ALLDONE

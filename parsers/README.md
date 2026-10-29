@@ -60,3 +60,32 @@ own speedup is measured on the same machine rather than against old numbers.
 Replays are pinned by sha256 in `replays.txt` and verified before each run.
 They are deliberately separate from `replays/MANIFEST.sha256`, which drives the
 cross-version JMH matrix and its backfill obligation.
+
+## Batch in one process
+
+`parsers/batch/` measures what a long-lived worker pays when it parses many
+demos concurrently in one process: N threads pull demos from a shared counter
+(12 per thread). Warmup is one pass over all replays per thread, then the timed
+phase reports
+
+- **demos/s**: wall-clock throughput
+- **cpu/demo**: process CPU seconds per demo (JIT and GC threads included)
+- **GC time and count** (clarity only, from the GC MXBeans)
+- **peak RSS** from `/usr/bin/time`
+
+The clarity driver is `ClarityBatch` in the `parsers/clarity` project, same
+workload as `ClarityParse`; the manta driver is `batch/manta/main.go`. Configs
+cover manta and clarity under ParallelGC (`-Xmx8g/4g/2g`), G1 (`4g/8g`) and
+SerialGC (`8g`).
+
+```bash
+./gradlew :parsers-clarity:installDist
+parsers/batch/run_batch.sh $HOME/projects/clarity/replays parsers/build/batch_runs.txt
+python3 parsers/batch/summarize.py parsers/build/batch_runs.txt
+```
+
+`THREADS` (default `1 4 8`), `ROUNDS` (3), `PER_THREAD` (12), `CONFIGS`,
+`REPLAYS` and `LOAD_GATE` (4.0, waits until the 1-minute load average is below
+it) are environment variables. Configs are interleaved per round. The manta
+binary is built into `parsers/build/`. Raw output and summaries are recorded by
+hand in `results/parsers/<date>_<host>_batch/`.

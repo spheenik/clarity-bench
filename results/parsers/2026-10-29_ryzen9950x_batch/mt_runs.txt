@@ -1,0 +1,82 @@
+round 1 par n=1 load=1.30
+batch: threads 1 demos 12 wall 4.68 s proc 5.48 s demos/s 2.56 cpu/demo 0.457 s gc 35 ms in 8
+rss_kb 2628044
+round 1 serial n=1 load=1.36
+batch: threads 1 demos 12 wall 4.79 s proc 4.94 s demos/s 2.50 cpu/demo 0.412 s gc 277 ms in 51
+rss_kb 823444
+round 1 g1 n=1 load=1.41
+batch: threads 1 demos 12 wall 4.66 s proc 5.86 s demos/s 2.57 cpu/demo 0.488 s gc 54 ms in 18
+rss_kb 1548556
+round 1 par n=4 load=1.57
+batch: threads 4 demos 48 wall 5.65 s proc 23.99 s demos/s 8.49 cpu/demo 0.500 s gc 148 ms in 22
+rss_kb 4325452
+round 1 serial n=4 load=2.15
+batch: threads 4 demos 48 wall 7.45 s proc 23.36 s demos/s 6.44 cpu/demo 0.487 s gc 1770 ms in 219
+rss_kb 1513472
+round 1 g1 n=4 load=2.45
+batch: threads 4 demos 48 wall 5.93 s proc 27.08 s demos/s 8.09 cpu/demo 0.564 s gc 268 ms in 36
+rss_kb 3546328
+round 1 par n=8 load=2.66
+batch: threads 8 demos 96 wall 6.76 s proc 54.55 s demos/s 14.20 cpu/demo 0.568 s gc 451 ms in 48
+rss_kb 6853720
+round 1 serial n=8 load=3.34
+batch: threads 8 demos 96 wall 10.65 s proc 51.42 s demos/s 9.02 cpu/demo 0.536 s gc 4162 ms in 448
+rss_kb 2036280
+round 1 g1 n=8 load=3.91
+batch: threads 8 demos 96 wall 7.08 s proc 60.69 s demos/s 13.56 cpu/demo 0.632 s gc 583 ms in 49
+rss_kb 6405328
+round 2 serial n=1 load=3.87
+batch: threads 1 demos 12 wall 4.79 s proc 4.94 s demos/s 2.50 cpu/demo 0.412 s gc 279 ms in 51
+rss_kb 824168
+round 2 g1 n=1 load=3.72
+batch: threads 1 demos 12 wall 4.64 s proc 5.84 s demos/s 2.59 cpu/demo 0.487 s gc 54 ms in 18
+rss_kb 1562840
+round 2 par n=1 load=3.74
+batch: threads 1 demos 12 wall 4.64 s proc 5.45 s demos/s 2.59 cpu/demo 0.454 s gc 35 ms in 7
+rss_kb 2623668
+round 2 serial n=4 load=3.47
+batch: threads 4 demos 48 wall 7.23 s proc 22.45 s demos/s 6.64 cpu/demo 0.468 s gc 1775 ms in 218
+rss_kb 1496320
+round 2 g1 n=4 load=3.86
+batch: threads 4 demos 48 wall 5.90 s proc 27.34 s demos/s 8.14 cpu/demo 0.570 s gc 276 ms in 34
+rss_kb 3684488
+round 2 par n=4 load=3.93
+batch: threads 4 demos 48 wall 5.74 s proc 24.36 s demos/s 8.37 cpu/demo 0.508 s gc 145 ms in 23
+rss_kb 4302804
+round 2 serial n=8 load=3.94
+batch: threads 8 demos 96 wall 10.56 s proc 50.33 s demos/s 9.09 cpu/demo 0.524 s gc 4122 ms in 448
+rss_kb 2033848
+round 2 g1 n=8 load=3.98
+batch: threads 8 demos 96 wall 7.20 s proc 61.41 s demos/s 13.33 cpu/demo 0.640 s gc 582 ms in 49
+rss_kb 6398756
+round 2 par n=8 load=3.91
+batch: threads 8 demos 96 wall 6.80 s proc 54.27 s demos/s 14.13 cpu/demo 0.565 s gc 442 ms in 47
+rss_kb 6847948
+round 3 g1 n=1 load=3.86
+batch: threads 1 demos 12 wall 4.65 s proc 5.75 s demos/s 2.58 cpu/demo 0.479 s gc 49 ms in 17
+rss_kb 1546008
+round 3 par n=1 load=3.72
+batch: threads 1 demos 12 wall 4.59 s proc 5.49 s demos/s 2.61 cpu/demo 0.458 s gc 38 ms in 8
+rss_kb 2623352
+round 3 serial n=1 load=3.45
+batch: threads 1 demos 12 wall 4.81 s proc 4.97 s demos/s 2.49 cpu/demo 0.414 s gc 282 ms in 51
+rss_kb 823308
+round 3 g1 n=4 load=3.33
+batch: threads 4 demos 48 wall 5.93 s proc 27.22 s demos/s 8.10 cpu/demo 0.567 s gc 272 ms in 35
+rss_kb 3643964
+round 3 par n=4 load=3.74
+batch: threads 4 demos 48 wall 5.71 s proc 24.28 s demos/s 8.40 cpu/demo 0.506 s gc 151 ms in 23
+rss_kb 4364348
+round 3 serial n=4 load=3.84
+batch: threads 4 demos 48 wall 7.28 s proc 22.41 s demos/s 6.60 cpu/demo 0.467 s gc 1766 ms in 219
+rss_kb 1515140
+round 3 g1 n=8 load=3.77
+batch: threads 8 demos 96 wall 7.09 s proc 60.57 s demos/s 13.54 cpu/demo 0.631 s gc 575 ms in 48
+rss_kb 6410508
+round 3 par n=8 load=3.92
+batch: threads 8 demos 96 wall 6.97 s proc 55.43 s demos/s 13.76 cpu/demo 0.577 s gc 442 ms in 47
+rss_kb 6889812
+round 3 serial n=8 load=3.99
+batch: threads 8 demos 96 wall 10.42 s proc 49.64 s demos/s 9.21 cpu/demo 0.517 s gc 4134 ms in 443
+rss_kb 2047380
+ALLDONE
