@@ -1,0 +1,1428 @@
+{
+ "context": {
+  "date": "2026-10-29",
+  "host": "ryzen9950x",
+  "cpu": "AMD Ryzen 9 9950X 16-Core Processor",
+  "kernel": "7.2.7-arch1-1",
+  "java": "openjdk version \"21.0.12.1\" 2026-08-18",
+  "go": "go version go1.27.2-X:nodwarf5 linux/amd64",
+  "python": "3.14.8",
+  "load_start": [
+   "1.43",
+   "1.24",
+   "2.70"
+  ],
+  "load_end": [
+   "2.31",
+   "1.74",
+   "2.57"
+  ],
+  "rounds": 7,
+  "loop_iterations": 10,
+  "loop_warmup": 3,
+  "versions": {
+   "clarity 5.0.0": "5.0.0",
+   "manta v1.5.2": "v1.5.2",
+   "manta v1.5.1": "v1.5.1",
+   "manta v1.5.0": "v1.5.0",
+   "manta 91f7979": "v1.4.8-0.20260324190535-91f79795c479"
+  },
+  "replays": {
+   "cs2-anubis": "cs2/350/3dmax-vs-falcons-m1-anubis.dem",
+   "dota-2016": "dota/s2/normal/2267054840.dem",
+   "dota-2025": "dota/s2/340/8168882574_1198277651.dem"
+  }
+ },
+ "results": {
+  "process": {
+   "cs2-anubis|clarity": [
+    {
+     "iterations": [
+      {
+       "wall": 1.6256,
+       "cpu": 2.72
+      }
+     ],
+     "process_wall": 1.75,
+     "process_cpu": 2.9899999999999998,
+     "rss_mb": 1129.0703125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.3889,
+       "cpu": 2.54
+      }
+     ],
+     "process_wall": 1.51,
+     "process_cpu": 2.79,
+     "rss_mb": 1144.2734375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.3854,
+       "cpu": 2.54
+      }
+     ],
+     "process_wall": 1.51,
+     "process_cpu": 2.79,
+     "rss_mb": 1136.4609375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.3707,
+       "cpu": 2.4
+      }
+     ],
+     "process_wall": 1.49,
+     "process_cpu": 2.65,
+     "rss_mb": 1133.28125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.3657,
+       "cpu": 2.38
+      }
+     ],
+     "process_wall": 1.49,
+     "process_cpu": 2.64,
+     "rss_mb": 1127.515625
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.3753,
+       "cpu": 2.48
+      }
+     ],
+     "process_wall": 1.5,
+     "process_cpu": 2.73,
+     "rss_mb": 1138.93359375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.375,
+       "cpu": 2.48
+      }
+     ],
+     "process_wall": 1.49,
+     "process_cpu": 2.75,
+     "rss_mb": 1136.84765625
+    }
+   ],
+   "dota-2016|clarity": [
+    {
+     "iterations": [
+      {
+       "wall": 0.5858,
+       "cpu": 1.66
+      }
+     ],
+     "process_wall": 0.71,
+     "process_cpu": 1.93,
+     "rss_mb": 802.00390625
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.542,
+       "cpu": 1.62
+      }
+     ],
+     "process_wall": 0.66,
+     "process_cpu": 1.8699999999999999,
+     "rss_mb": 805.39453125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.5532,
+       "cpu": 1.61
+      }
+     ],
+     "process_wall": 0.67,
+     "process_cpu": 1.88,
+     "rss_mb": 802.88671875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.5467,
+       "cpu": 1.61
+      }
+     ],
+     "process_wall": 0.67,
+     "process_cpu": 1.89,
+     "rss_mb": 803.1171875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.5574,
+       "cpu": 1.6
+      }
+     ],
+     "process_wall": 0.68,
+     "process_cpu": 1.8699999999999999,
+     "rss_mb": 800.04296875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.5454,
+       "cpu": 1.57
+      }
+     ],
+     "process_wall": 0.67,
+     "process_cpu": 1.8399999999999999,
+     "rss_mb": 805.76953125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.5585,
+       "cpu": 1.62
+      }
+     ],
+     "process_wall": 0.68,
+     "process_cpu": 1.9,
+     "rss_mb": 803.86328125
+    }
+   ],
+   "dota-2016|manta-v1.5.2": [
+    {
+     "iterations": [
+      {
+       "wall": 0.2526,
+       "cpu": 0.2829
+      }
+     ],
+     "process_wall": 0.26,
+     "process_cpu": 0.29000000000000004,
+     "rss_mb": 35.33203125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.2514,
+       "cpu": 0.2858
+      }
+     ],
+     "process_wall": 0.25,
+     "process_cpu": 0.28,
+     "rss_mb": 33.6171875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.2562,
+       "cpu": 0.2858
+      }
+     ],
+     "process_wall": 0.26,
+     "process_cpu": 0.28,
+     "rss_mb": 35.80078125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.2595,
+       "cpu": 0.2941
+      }
+     ],
+     "process_wall": 0.26,
+     "process_cpu": 0.29000000000000004,
+     "rss_mb": 35.16015625
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.2616,
+       "cpu": 0.2941
+      }
+     ],
+     "process_wall": 0.26,
+     "process_cpu": 0.3,
+     "rss_mb": 35.2890625
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.2525,
+       "cpu": 0.2872
+      }
+     ],
+     "process_wall": 0.25,
+     "process_cpu": 0.28,
+     "rss_mb": 33.6875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.2592,
+       "cpu": 0.2909
+      }
+     ],
+     "process_wall": 0.26,
+     "process_cpu": 0.29,
+     "rss_mb": 33.5859375
+    }
+   ],
+   "dota-2016|manta-v1.5.1": [
+    {
+     "iterations": [
+      {
+       "wall": 0.3847,
+       "cpu": 0.4433
+      }
+     ],
+     "process_wall": 0.39,
+     "process_cpu": 0.45,
+     "rss_mb": 37.6171875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.374,
+       "cpu": 0.4269
+      }
+     ],
+     "process_wall": 0.37,
+     "process_cpu": 0.42,
+     "rss_mb": 37.8359375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.3846,
+       "cpu": 0.4439
+      }
+     ],
+     "process_wall": 0.38,
+     "process_cpu": 0.44,
+     "rss_mb": 37.91796875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.3695,
+       "cpu": 0.4199
+      }
+     ],
+     "process_wall": 0.37,
+     "process_cpu": 0.41000000000000003,
+     "rss_mb": 37.65625
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.3785,
+       "cpu": 0.4292
+      }
+     ],
+     "process_wall": 0.38,
+     "process_cpu": 0.43,
+     "rss_mb": 38.19140625
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.3751,
+       "cpu": 0.4301
+      }
+     ],
+     "process_wall": 0.37,
+     "process_cpu": 0.43,
+     "rss_mb": 38.06640625
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.3898,
+       "cpu": 0.448
+      }
+     ],
+     "process_wall": 0.39,
+     "process_cpu": 0.44,
+     "rss_mb": 37.57421875
+    }
+   ],
+   "dota-2016|manta-v1.5.0": [
+    {
+     "iterations": [
+      {
+       "wall": 0.4851,
+       "cpu": 0.6062
+      }
+     ],
+     "process_wall": 0.49,
+     "process_cpu": 0.61,
+     "rss_mb": 37.71875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.497,
+       "cpu": 0.6309
+      }
+     ],
+     "process_wall": 0.5,
+     "process_cpu": 0.63,
+     "rss_mb": 38.12109375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.4931,
+       "cpu": 0.6324
+      }
+     ],
+     "process_wall": 0.49,
+     "process_cpu": 0.63,
+     "rss_mb": 36.05078125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.5208,
+       "cpu": 0.6726
+      }
+     ],
+     "process_wall": 0.52,
+     "process_cpu": 0.67,
+     "rss_mb": 37.7265625
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.5026,
+       "cpu": 0.6259
+      }
+     ],
+     "process_wall": 0.5,
+     "process_cpu": 0.63,
+     "rss_mb": 39.390625
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.4911,
+       "cpu": 0.6255
+      }
+     ],
+     "process_wall": 0.49,
+     "process_cpu": 0.63,
+     "rss_mb": 39.6328125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.5157,
+       "cpu": 0.6795
+      }
+     ],
+     "process_wall": 0.52,
+     "process_cpu": 0.68,
+     "rss_mb": 37.625
+    }
+   ],
+   "dota-2016|manta-91f7979": [
+    {
+     "iterations": [
+      {
+       "wall": 1.1389,
+       "cpu": 1.535
+      }
+     ],
+     "process_wall": 1.14,
+     "process_cpu": 1.53,
+     "rss_mb": 34.16796875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.1352,
+       "cpu": 1.5196
+      }
+     ],
+     "process_wall": 1.13,
+     "process_cpu": 1.51,
+     "rss_mb": 37.30078125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.1661,
+       "cpu": 1.574
+      }
+     ],
+     "process_wall": 1.17,
+     "process_cpu": 1.57,
+     "rss_mb": 35.76171875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.1414,
+       "cpu": 1.5181
+      }
+     ],
+     "process_wall": 1.14,
+     "process_cpu": 1.52,
+     "rss_mb": 35.34765625
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.1173,
+       "cpu": 1.4675
+      }
+     ],
+     "process_wall": 1.12,
+     "process_cpu": 1.4700000000000002,
+     "rss_mb": 34.5234375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.1258,
+       "cpu": 1.4903
+      }
+     ],
+     "process_wall": 1.13,
+     "process_cpu": 1.49,
+     "rss_mb": 34.328125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.1453,
+       "cpu": 1.5241
+      }
+     ],
+     "process_wall": 1.15,
+     "process_cpu": 1.52,
+     "rss_mb": 35.98046875
+    }
+   ],
+   "dota-2025|clarity": [
+    {
+     "iterations": [
+      {
+       "wall": 1.5125,
+       "cpu": 3.25
+      }
+     ],
+     "process_wall": 1.62,
+     "process_cpu": 3.51,
+     "rss_mb": 986.0859375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.3949,
+       "cpu": 3.09
+      }
+     ],
+     "process_wall": 1.52,
+     "process_cpu": 3.3600000000000003,
+     "rss_mb": 986.64453125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.4015,
+       "cpu": 3.13
+      }
+     ],
+     "process_wall": 1.51,
+     "process_cpu": 3.4,
+     "rss_mb": 982.86328125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.4269,
+       "cpu": 3.17
+      }
+     ],
+     "process_wall": 1.55,
+     "process_cpu": 3.44,
+     "rss_mb": 988.12890625
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.399,
+       "cpu": 3.11
+      }
+     ],
+     "process_wall": 1.51,
+     "process_cpu": 3.37,
+     "rss_mb": 987.98046875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.3988,
+       "cpu": 3.15
+      }
+     ],
+     "process_wall": 1.51,
+     "process_cpu": 3.42,
+     "rss_mb": 992.40234375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.4128,
+       "cpu": 3.14
+      }
+     ],
+     "process_wall": 1.54,
+     "process_cpu": 3.4,
+     "rss_mb": 987.515625
+    }
+   ],
+   "dota-2025|manta-v1.5.2": [
+    {
+     "iterations": [
+      {
+       "wall": 0.8698,
+       "cpu": 0.9966
+      }
+     ],
+     "process_wall": 0.87,
+     "process_cpu": 0.99,
+     "rss_mb": 54.32421875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.8946,
+       "cpu": 1.0466
+      }
+     ],
+     "process_wall": 0.89,
+     "process_cpu": 1.05,
+     "rss_mb": 56.17578125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.8945,
+       "cpu": 1.0519
+      }
+     ],
+     "process_wall": 0.89,
+     "process_cpu": 1.05,
+     "rss_mb": 56.29296875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.8743,
+       "cpu": 0.9987
+      }
+     ],
+     "process_wall": 0.87,
+     "process_cpu": 1.0,
+     "rss_mb": 56.83203125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.8686,
+       "cpu": 0.9991
+      }
+     ],
+     "process_wall": 0.87,
+     "process_cpu": 1.0,
+     "rss_mb": 60.76171875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.8947,
+       "cpu": 1.0543
+      }
+     ],
+     "process_wall": 0.89,
+     "process_cpu": 1.05,
+     "rss_mb": 56.0859375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 0.874,
+       "cpu": 1.0032
+      }
+     ],
+     "process_wall": 0.87,
+     "process_cpu": 1.0,
+     "rss_mb": 53.76953125
+    }
+   ],
+   "dota-2025|manta-v1.5.1": [
+    {
+     "iterations": [
+      {
+       "wall": 1.3382,
+       "cpu": 1.5427
+      }
+     ],
+     "process_wall": 1.34,
+     "process_cpu": 1.54,
+     "rss_mb": 70.796875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.3517,
+       "cpu": 1.5565
+      }
+     ],
+     "process_wall": 1.35,
+     "process_cpu": 1.55,
+     "rss_mb": 68.86328125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.3431,
+       "cpu": 1.5385
+      }
+     ],
+     "process_wall": 1.34,
+     "process_cpu": 1.54,
+     "rss_mb": 69.15625
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.3617,
+       "cpu": 1.5628
+      }
+     ],
+     "process_wall": 1.36,
+     "process_cpu": 1.56,
+     "rss_mb": 68.921875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.379,
+       "cpu": 1.6359
+      }
+     ],
+     "process_wall": 1.38,
+     "process_cpu": 1.6300000000000001,
+     "rss_mb": 69.1328125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.3428,
+       "cpu": 1.5549
+      }
+     ],
+     "process_wall": 1.34,
+     "process_cpu": 1.55,
+     "rss_mb": 66.7734375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.3486,
+       "cpu": 1.5799
+      }
+     ],
+     "process_wall": 1.35,
+     "process_cpu": 1.57,
+     "rss_mb": 68.9921875
+    }
+   ],
+   "dota-2025|manta-v1.5.0": [
+    {
+     "iterations": [
+      {
+       "wall": 1.7508,
+       "cpu": 2.2281
+      }
+     ],
+     "process_wall": 1.75,
+     "process_cpu": 2.23,
+     "rss_mb": 76.07421875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.8253,
+       "cpu": 2.4467
+      }
+     ],
+     "process_wall": 1.83,
+     "process_cpu": 2.45,
+     "rss_mb": 76.36328125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.8227,
+       "cpu": 2.4383
+      }
+     ],
+     "process_wall": 1.82,
+     "process_cpu": 2.44,
+     "rss_mb": 75.90234375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.7621,
+       "cpu": 2.2376
+      }
+     ],
+     "process_wall": 1.76,
+     "process_cpu": 2.23,
+     "rss_mb": 71.53125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.7829,
+       "cpu": 2.3345
+      }
+     ],
+     "process_wall": 1.78,
+     "process_cpu": 2.33,
+     "rss_mb": 79.5390625
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.8416,
+       "cpu": 2.4787
+      }
+     ],
+     "process_wall": 1.84,
+     "process_cpu": 2.48,
+     "rss_mb": 75.43359375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 1.8374,
+       "cpu": 2.4463
+      }
+     ],
+     "process_wall": 1.84,
+     "process_cpu": 2.4499999999999997,
+     "rss_mb": 73.7578125
+    }
+   ],
+   "dota-2025|manta-91f7979": [
+    {
+     "iterations": [
+      {
+       "wall": 3.8581,
+       "cpu": 5.5538
+      }
+     ],
+     "process_wall": 3.86,
+     "process_cpu": 5.55,
+     "rss_mb": 64.29296875
+    },
+    {
+     "iterations": [
+      {
+       "wall": 3.845,
+       "cpu": 5.5367
+      }
+     ],
+     "process_wall": 3.85,
+     "process_cpu": 5.53,
+     "rss_mb": 62.48828125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 3.852,
+       "cpu": 5.5679
+      }
+     ],
+     "process_wall": 3.85,
+     "process_cpu": 5.56,
+     "rss_mb": 64.75390625
+    },
+    {
+     "iterations": [
+      {
+       "wall": 3.8171,
+       "cpu": 5.4824
+      }
+     ],
+     "process_wall": 3.82,
+     "process_cpu": 5.4799999999999995,
+     "rss_mb": 64.77734375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 3.6687,
+       "cpu": 5.011
+      }
+     ],
+     "process_wall": 3.67,
+     "process_cpu": 5.01,
+     "rss_mb": 62.84375
+    },
+    {
+     "iterations": [
+      {
+       "wall": 3.8633,
+       "cpu": 5.574
+      }
+     ],
+     "process_wall": 3.86,
+     "process_cpu": 5.57,
+     "rss_mb": 63.1953125
+    },
+    {
+     "iterations": [
+      {
+       "wall": 3.8592,
+       "cpu": 5.5306
+      }
+     ],
+     "process_wall": 3.86,
+     "process_cpu": 5.53,
+     "rss_mb": 66.02734375
+    }
+   ]
+  },
+  "loop": {
+   "cs2-anubis|clarity": {
+    "iterations": [
+     {
+      "wall": 1.3626,
+      "cpu": 2.4
+     },
+     {
+      "wall": 1.1337,
+      "cpu": 1.37
+     },
+     {
+      "wall": 1.1167,
+      "cpu": 1.39
+     },
+     {
+      "wall": 1.1165,
+      "cpu": 1.23
+     },
+     {
+      "wall": 1.1136,
+      "cpu": 1.27
+     },
+     {
+      "wall": 1.1138,
+      "cpu": 1.18
+     },
+     {
+      "wall": 1.1176,
+      "cpu": 1.19
+     },
+     {
+      "wall": 1.1125,
+      "cpu": 1.17
+     },
+     {
+      "wall": 1.1103,
+      "cpu": 1.16
+     },
+     {
+      "wall": 1.1038,
+      "cpu": 1.16
+     }
+    ],
+    "process_wall": 11.51,
+    "process_cpu": 13.780000000000001,
+    "rss_mb": 1169.62890625
+   },
+   "dota-2016|clarity": {
+    "iterations": [
+     {
+      "wall": 0.5438,
+      "cpu": 1.55
+     },
+     {
+      "wall": 0.3398,
+      "cpu": 0.71
+     },
+     {
+      "wall": 0.3393,
+      "cpu": 0.51
+     },
+     {
+      "wall": 0.3263,
+      "cpu": 0.41
+     },
+     {
+      "wall": 0.319,
+      "cpu": 0.46
+     },
+     {
+      "wall": 0.3213,
+      "cpu": 0.4
+     },
+     {
+      "wall": 0.3284,
+      "cpu": 0.39
+     },
+     {
+      "wall": 0.3197,
+      "cpu": 0.37
+     },
+     {
+      "wall": 0.3263,
+      "cpu": 0.4
+     },
+     {
+      "wall": 0.3267,
+      "cpu": 0.37
+     }
+    ],
+    "process_wall": 3.6,
+    "process_cpu": 5.84,
+    "rss_mb": 837.98046875
+   },
+   "dota-2016|manta-v1.5.2": {
+    "iterations": [
+     {
+      "wall": 0.261,
+      "cpu": 0.2963
+     },
+     {
+      "wall": 0.2613,
+      "cpu": 0.2932
+     },
+     {
+      "wall": 0.2607,
+      "cpu": 0.2945
+     },
+     {
+      "wall": 0.2635,
+      "cpu": 0.2976
+     },
+     {
+      "wall": 0.2618,
+      "cpu": 0.2928
+     },
+     {
+      "wall": 0.2613,
+      "cpu": 0.2981
+     },
+     {
+      "wall": 0.2576,
+      "cpu": 0.2922
+     },
+     {
+      "wall": 0.2575,
+      "cpu": 0.2884
+     },
+     {
+      "wall": 0.2595,
+      "cpu": 0.296
+     },
+     {
+      "wall": 0.2557,
+      "cpu": 0.2859
+     }
+    ],
+    "process_wall": 2.6,
+    "process_cpu": 2.94,
+    "rss_mb": 35.8203125
+   },
+   "dota-2016|manta-v1.5.1": {
+    "iterations": [
+     {
+      "wall": 0.3906,
+      "cpu": 0.4493
+     },
+     {
+      "wall": 0.3869,
+      "cpu": 0.4567
+     },
+     {
+      "wall": 0.3853,
+      "cpu": 0.4485
+     },
+     {
+      "wall": 0.3957,
+      "cpu": 0.4589
+     },
+     {
+      "wall": 0.3916,
+      "cpu": 0.4521
+     },
+     {
+      "wall": 0.3855,
+      "cpu": 0.4536
+     },
+     {
+      "wall": 0.3881,
+      "cpu": 0.4502
+     },
+     {
+      "wall": 0.3866,
+      "cpu": 0.4461
+     },
+     {
+      "wall": 0.3867,
+      "cpu": 0.4506
+     },
+     {
+      "wall": 0.3892,
+      "cpu": 0.4517
+     }
+    ],
+    "process_wall": 3.89,
+    "process_cpu": 4.51,
+    "rss_mb": 40.08984375
+   },
+   "dota-2016|manta-v1.5.0": {
+    "iterations": [
+     {
+      "wall": 0.4915,
+      "cpu": 0.6112
+     },
+     {
+      "wall": 0.4927,
+      "cpu": 0.6131
+     },
+     {
+      "wall": 0.4862,
+      "cpu": 0.6028
+     },
+     {
+      "wall": 0.4914,
+      "cpu": 0.602
+     },
+     {
+      "wall": 0.49,
+      "cpu": 0.6062
+     },
+     {
+      "wall": 0.5005,
+      "cpu": 0.6343
+     },
+     {
+      "wall": 0.4938,
+      "cpu": 0.6122
+     },
+     {
+      "wall": 0.4913,
+      "cpu": 0.6162
+     },
+     {
+      "wall": 0.4928,
+      "cpu": 0.6161
+     },
+     {
+      "wall": 0.4892,
+      "cpu": 0.6004
+     }
+    ],
+    "process_wall": 4.92,
+    "process_cpu": 6.11,
+    "rss_mb": 38.625
+   },
+   "dota-2016|manta-91f7979": {
+    "iterations": [
+     {
+      "wall": 1.1324,
+      "cpu": 1.492
+     },
+     {
+      "wall": 1.0918,
+      "cpu": 1.4022
+     },
+     {
+      "wall": 1.1077,
+      "cpu": 1.4301
+     },
+     {
+      "wall": 1.1351,
+      "cpu": 1.4861
+     },
+     {
+      "wall": 1.0899,
+      "cpu": 1.4089
+     },
+     {
+      "wall": 1.1384,
+      "cpu": 1.4944
+     },
+     {
+      "wall": 1.12,
+      "cpu": 1.4751
+     },
+     {
+      "wall": 1.1351,
+      "cpu": 1.5136
+     },
+     {
+      "wall": 1.1364,
+      "cpu": 1.5066
+     },
+     {
+      "wall": 1.1263,
+      "cpu": 1.4853
+     }
+    ],
+    "process_wall": 11.21,
+    "process_cpu": 14.700000000000001,
+    "rss_mb": 36.5
+   },
+   "dota-2025|clarity": {
+    "iterations": [
+     {
+      "wall": 1.403,
+      "cpu": 3.13
+     },
+     {
+      "wall": 1.1729,
+      "cpu": 2.07
+     },
+     {
+      "wall": 1.1792,
+      "cpu": 2.03
+     },
+     {
+      "wall": 1.1662,
+      "cpu": 1.87
+     },
+     {
+      "wall": 1.1582,
+      "cpu": 1.78
+     },
+     {
+      "wall": 1.157,
+      "cpu": 1.6
+     },
+     {
+      "wall": 1.1738,
+      "cpu": 1.73
+     },
+     {
+      "wall": 1.1761,
+      "cpu": 1.41
+     },
+     {
+      "wall": 1.1634,
+      "cpu": 1.45
+     },
+     {
+      "wall": 1.1594,
+      "cpu": 1.5
+     }
+    ],
+    "process_wall": 12.02,
+    "process_cpu": 18.82,
+    "rss_mb": 1398.71875
+   },
+   "dota-2025|manta-v1.5.2": {
+    "iterations": [
+     {
+      "wall": 0.8948,
+      "cpu": 1.0544
+     },
+     {
+      "wall": 0.8996,
+      "cpu": 1.0419
+     },
+     {
+      "wall": 0.9019,
+      "cpu": 1.0325
+     },
+     {
+      "wall": 0.9034,
+      "cpu": 1.0628
+     },
+     {
+      "wall": 0.9054,
+      "cpu": 1.0574
+     },
+     {
+      "wall": 0.8845,
+      "cpu": 1.0322
+     },
+     {
+      "wall": 0.8904,
+      "cpu": 1.0521
+     },
+     {
+      "wall": 0.8892,
+      "cpu": 1.0454
+     },
+     {
+      "wall": 0.8874,
+      "cpu": 1.0379
+     },
+     {
+      "wall": 0.8866,
+      "cpu": 1.0358
+     }
+    ],
+    "process_wall": 8.94,
+    "process_cpu": 10.46,
+    "rss_mb": 57.3671875
+   },
+   "dota-2025|manta-v1.5.1": {
+    "iterations": [
+     {
+      "wall": 1.3423,
+      "cpu": 1.5566
+     },
+     {
+      "wall": 1.3528,
+      "cpu": 1.5693
+     },
+     {
+      "wall": 1.3755,
+      "cpu": 1.6385
+     },
+     {
+      "wall": 1.3654,
+      "cpu": 1.6112
+     },
+     {
+      "wall": 1.3799,
+      "cpu": 1.6377
+     },
+     {
+      "wall": 1.3694,
+      "cpu": 1.5983
+     },
+     {
+      "wall": 1.3594,
+      "cpu": 1.5974
+     },
+     {
+      "wall": 1.393,
+      "cpu": 1.6441
+     },
+     {
+      "wall": 1.3951,
+      "cpu": 1.639
+     },
+     {
+      "wall": 1.3695,
+      "cpu": 1.6126
+     }
+    ],
+    "process_wall": 13.7,
+    "process_cpu": 16.099999999999998,
+    "rss_mb": 73.48828125
+   },
+   "dota-2025|manta-v1.5.0": {
+    "iterations": [
+     {
+      "wall": 1.7781,
+      "cpu": 2.3251
+     },
+     {
+      "wall": 1.8267,
+      "cpu": 2.466
+     },
+     {
+      "wall": 1.838,
+      "cpu": 2.5002
+     },
+     {
+      "wall": 1.8456,
+      "cpu": 2.4939
+     },
+     {
+      "wall": 1.8186,
+      "cpu": 2.4511
+     },
+     {
+      "wall": 1.8267,
+      "cpu": 2.4465
+     },
+     {
+      "wall": 1.8194,
+      "cpu": 2.4078
+     },
+     {
+      "wall": 1.8276,
+      "cpu": 2.4341
+     },
+     {
+      "wall": 1.8418,
+      "cpu": 2.4774
+     },
+     {
+      "wall": 1.8049,
+      "cpu": 2.3812
+     }
+    ],
+    "process_wall": 18.23,
+    "process_cpu": 24.38,
+    "rss_mb": 75.546875
+   },
+   "dota-2025|manta-91f7979": {
+    "iterations": [
+     {
+      "wall": 3.7452,
+      "cpu": 5.2642
+     },
+     {
+      "wall": 3.8377,
+      "cpu": 5.5482
+     },
+     {
+      "wall": 3.8378,
+      "cpu": 5.5442
+     },
+     {
+      "wall": 3.8634,
+      "cpu": 5.5485
+     },
+     {
+      "wall": 3.8661,
+      "cpu": 5.6153
+     },
+     {
+      "wall": 3.8494,
+      "cpu": 5.5842
+     },
+     {
+      "wall": 3.8462,
+      "cpu": 5.5878
+     },
+     {
+      "wall": 3.8483,
+      "cpu": 5.593
+     },
+     {
+      "wall": 3.9051,
+      "cpu": 5.6943
+     },
+     {
+      "wall": 3.8574,
+      "cpu": 5.5721
+     }
+    ],
+    "process_wall": 38.46,
+    "process_cpu": 55.55,
+    "rss_mb": 67.3046875
+   }
+  }
+ }
+}

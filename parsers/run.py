@@ -38,6 +38,8 @@ TARGETS = [
     ("dic-v5.2.0-st", "demoinfocs", "v5.2.0", "ST", {"CS2"}),
     ("dic-v5.1.4-default", "demoinfocs", "v5.1.4", "default", {"CS2"}),
     ("dic-v5.1.4-st", "demoinfocs", "v5.1.4", "ST", {"CS2"}),
+    ("manta-v1.5.2", "manta", "v1.5.2", "ST", {"DOTA_S2"}),
+    ("manta-v1.5.1", "manta", "v1.5.1", "ST", {"DOTA_S2"}),
     ("manta-v1.5.0", "manta", "v1.5.0", "ST", {"DOTA_S2"}),
     ("manta-91f7979", "manta", "91f7979", "ST", {"DOTA_S2"}),
 ]
